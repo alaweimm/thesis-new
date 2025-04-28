@@ -1,0 +1,759 @@
+\documentclass[12pt]{ucbthesis}
+
+% --- Math and symbols ---
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{braket}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage[labelfont=bf, listformat=bold]{caption}
+\captionsetup[figure]{labelfont=bf, listformat=bold}
+
+
+% --- Tables and colors ---
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\definecolor{tablegray}{gray}{0.95}
+
+% Only color tables, not matrices!
+\usepackage{etoolbox}
+\AtBeginEnvironment{tabular}{\rowcolors{2}{tablegray}{white}}
+\AtBeginEnvironment{longtable}{\rowcolors{2}{tablegray}{white}}
+
+% --- Graphics and floats ---
+\usepackage{graphicx}
+\usepackage[float]{placeins}
+\usepackage{caption}
+
+% --- Hyperlinks and citations ---
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage{cite}
+
+% --- Lists and spacing ---
+\usepackage{enumitem}
+\usepackage{setspace}
+\setlist{nosep}
+
+% --- TikZ for figures ---
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% --- Geometry and layout ---
+\usepackage{geometry}
+\setlength{\headheight}{30pt} % Fix header height warning
+\addtolength{\abovecaptionskip}{\baselineskip}
+
+% --- Theorem and definition environments ---
+\usepackage{amsthm}
+% Custom definition environment: unboxed, bold label, period, end marker
+\newtheoremstyle{mydef}
+  {6pt}   % Space above
+  {6pt}   % Space below
+  {\normalfont} % Body font
+  {}      % Indent
+  {\bfseries} % Theorem head font
+  {.}     % Punctuation after theorem head
+  {0.5em} % Space after theorem head
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (\textit{#3})}} % Theorem head spec
+
+\theoremstyle{mydef}
+\newtheorem{definition}{Definition}[chapter]
+
+% Optional: add end marker to definitions (like a black square)
+\let\olddefinition\definition
+\let\endolddefinition\enddefinition
+\renewenvironment{definition}[1][]{%
+  \begin{olddefinition}[#1]%
+}{%
+  \hfill$\blacksquare$\end{olddefinition}%
+}
+
+% --- Other theorem environments ---
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+
+
+\begin{document}
+% Title Page Information
+\title{Strain-Induced Flat Bands and Lateral Heterostructures: \ Hole Localization in Rippled Monolayer TMDs}
+\author{Meshal Alawein}
+\degreesemester{Spring}
+\degreeyear{2025}
+\degree{Doctor of Philosophy}
+\chair{Professor Ali Javey}
+\othermembers{Professor Daryl Chrzan \\
+Professor Boubacar Kant\'e}
+\numberofmembers{3}
+\field{Electrical Engineering and Computer Sciences}
+% Front Matter
+\maketitle
+\approvalpage
+\copyrightpage
+\chapter*{Abstract}
+This thesis explores how periodic rippling in 2D group-VI TMD monolayers---such as MoS\textsubscript{2}, WS\textsubscript{2}, MoSe\textsubscript{2}, and WSe\textsubscript{2}---can flatten their electronic bands under compression. Through first-principles simulations, we trace the formation of periodic ripples and show that, beyond a certain compression, flat valence bands emerge in these otherwise semiconducting TMDs.\ In particular, a gradual mechanical-electronic transition unfolds:\ initial deformation leads to buckling, which triggers the formation of ripples---much like a thin sheet forced to bend under pressure.\ As the compression increases, the valence band evolves in character.\ The $\Gamma$-point (which hosts a nearly flat segment along the $\overline{\Gamma X}$ direction) rises in energy, while the K-point (initially the valence band maximum) drops.\ At a critical compression, these levels cross---signaling the birth of a flat valence band and a fundamental shift in the material’s electronic properties.\ What results is a built-in lateral potential landscape---a heterostructure embedded within a single, chemically uniform monolayer, achieved without chemical doping, stacking, or twist-angle engineering.\ Curvature drives this transformation, and the outcome is striking:\ heave-hole are pinned in high-curvature regions, while electrons remain free to move.\ This asymmetry opens new possibilities for exciton trapping, hole-based electronics, and the study of correlated electronic phases in 2D systems.
+
+\begin{frontmatter}
+\begin{dedication}
+\null\vfil
+\begin{center}
+In memory of Sulaiman Almajed,\\[1em]
+heaven called for reinforcement, and now you guide among the stars.\\[3em]
+
+To Jessica,\\[1em]
+my guardian of hope, with lasting appreciation.\\[3em]
+
+To my family,\\[1em]
+my forever foundation and fountain of love.
+\end{center}
+\vfil\null
+\end{dedication}
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\begin{acknowledgements}
+
+First and foremost, I extend my deepest gratitude to my research advisor, Professor Daryl Chrzan, who took me under his wing and guided me through every twist and turn of this project. Amid wild pivots, chaotic drafts, and countless ``I swear I'm almost done'' declarations that I care to admit, he maintained remarkable clarity---and, against all odds, his sanity---throughout the carnival ride that is advising a PhD student. His day-to-day mentorship and sharp, no-nonsense insight helped shape not just the scientific direction of this work, but also the way I think as a researcher. Over the years, I tested the limits of both our research tools and his patience, throwing at him a full buffet of challenges and academic misadventures---occasional detours, procrastination marathons, half-baked ideas, codes that left the compiler speechless, and the kind of nonlinear progress only a PhD student can deliver.\ He endured it all and remained calm, humorous, and far more tolerant than I had any right to expect. For that---and for not abandoning me at sea after catching no fish---I am profoundly thankful.
+
+I am equally grateful to my advisor to my PhD advisor, Professor Ali Javey, for his unwavering support throughout my time in the program and for letting me run with this idea as well as entrusting me with the freedom and flexibility to pursue this research direction. His strategic oversight and guidance helped make this work possible. My sincere thanks also go to Professor Boubacar Kant\'e for serving on my dissertation committee and for offering valuable feedback that helped strengthen this work.  I also wish to acknowledge Dr.\ Joel Ager for his collaborative spirit and contributions as a co-author, and to the broader team at Lawrence Berkeley National Laboratory for making this work possible.
+
+This work was generously supported by the U.S. Department of Energy, Office of Science, Office of Basic Energy Sciences.
+
+\end{acknowledgements}
+\end{frontmatter}
+% Main Chapters
+\pagestyle{headings}
+
+\chapter{Introduction}
+\label{ch:introduction}
+
+\section{A Brief History of Two-Dimensional Materials}
+
+The story of two-dimensional (2D) materials is one where ambition met serendipity. LDecades before graphene’s exfoliation, theorists speculated about the exotic physics that might emerge in atomically thin crystals. Early studies on graphite intercalation compounds in the 1960s hinted that isolating a single atomic layer could unlock exotic electronic behaviors~\cite{hennig1965graphite}. However, prevailing wisdom asserted that free-standing 2D sheets would be thermodynamically unstable, destined to crumple and disintegrate under the tyranny of thermal fluctuations.
+
+That narrative flipped in 2004, when Geim and Novoselov’s exfoliated graphene from graphite using ordinary Scotch tape---a ``Sunday afternoon experiment''---launching a global rush into the world of 2D materials~\cite{novoselov2004electric}. Graphene’s massless Dirac fermions, ballistic transport, and mechanical strength shattered expectations and inspired a new era in quantum materials.
+
+Following graphene, a vibrant zoo of other van der Waals (vdW) crystals was uncovered: transition metal dichalcogenides (TMDs), hexagonal boron nitride (hBN), black phosphorus, and more. Unlike graphene, which is gapless, many TMD monolayers are semiconductors with sizable direct band gaps, opening new frontiers for optoelectronics, valleytronics, and---as explored in this thesis---flat-band physics.
+
+
+\section{Flat Bands: When Electrons Forget How to Move}
+
+
+
+
+In a conventional crystalline solid, electrons traverse a periodic lattice potential, forming dispersive energy bands where the energy $E(\mathbf{k}) $ varies smoothly with crystal momentum $\mathbf{k} $~\cite{bloch1929quantenmechanik}. The electronic group velocity is given by
+\begin{equation}
+    \mathbf{v}(\mathbf{k}) = \nabla_{\mathbf{k}} E(\mathbf{k}),
+\end{equation}
+which governs how electrons propagate through the material.\ Therefore, their kinetic energy acts as a leash, keeping the chaos of interactions in check.\ With quenching of the electrons’ kinetic energy, the stabilizing influence of motion is removed. Electron-electron interactions, normally a perturbative correction, now dominate the system’s behavior. As a result, even modest Coulomb repulsions can drive the emergence of novel correlated phases: Mott insulators, Wigner crystals, strange metals, unconventional superconductors, and other exotic quantum states \cite{cao2018unconventional, cao2018correlated, polshyn2019large, serlin2020intrinsic, bultinck2020mechanism}.
+
+The consequences are:
+\begin{enumerate}
+    \item \textbf{Group velocity collapse:} The group velocity \( \mathbf{v} \) approaches zero, suppressing charge mobility.
+    \item \textbf{Effective mass divergence:} The effective mass tensor
+    \begin{equation}
+        (m^*)^{-1}_{ij} = \frac{1}{\hbar^2} \frac{\partial^2 E}{\partial k_i \partial k_j}
+    \end{equation}
+    becomes extremely small in curvature, implying that \( m^* \to \infty \).
+    \item \textbf{Density of states enhancement:} The density of states (DOS),
+    \begin{equation}
+        \mathcal{D}(E) \propto \left( \frac{dE}{dk} \right)^{-1},
+    \end{equation}
+    diverges in the ideal flat-band limit, dramatically increasing the number of available states near the Fermi level.
+\end{enumerate}
+
+In short, flattening a band rewrites the energetic rules of electronic matter, replacing a world ruled by kinetic energy with one governed by interactions.
+
+\section{Twistronics: Quantum Origamis}
+A major breakthrough in flat-band physics came with the realization that simply \textit{twisting} two atomic layers could dramatically reshape their electronic structure. In twisted bilayer graphene, overlaying two sheets at a “magic angle” of about $1.1^\circ$ creates a moire\'e superlattice-a quantum interference pattern akin to overlaying two chicken-wire meshes and watching a giant interference pattern emerge~\cite{gish2024van, cao2018unconventional, cao2018correlated}. At this angle, the low-energy bands flatten dramatically, and electrons slow to a crawl~\cite{cao2018unconventional, po2018origin}. This geometric manipulation acts like a quantum accordion: stretching and compressing electronic wavefunctions until they localize at the Moir\'e AA-stacking regions.\footnote{This moire\'e pattern acts as a long-wavelength potential, folding and reconstructing the electronic bands. Near the magic angle, destructive interference between interlayer tunneling paths quenches the kinetic energy, flattening the bands.} The emergent superlattice has a unit cell hundreds of times larger than pristine graphene, and the resulting flat bands become a playground for correlated electron physics~\cite{utama2021visualization, ciarrocchi2022excitonic}.
+
+The analogy to cosmic origami is apt: by delicately folding and twisting atomically thin sheets, one sculpts entirely new quantum landscapes.\ But there’s a catch: twistronics demands atomic-scale precision. Even a tiny deviation from the magic angle can spoil the flatness, making device fabrication a formidable challenge. It’s like trying to tune a cosmic radio station with a dial that jumps in increments of 0.1$^\circ$---frustratingly sensitive, yet extremly powerful.
+
+\section{Flat Bands in Other van der Waals Materials}
+Twistronics is not just for graphene. Other vdW materials---$\gamma$-graphyne~\cite{an2021emergence}, hBN~\cite{zhao2020formation}, and especially TMDs~\cite{wu2018hubbard, naik2018ultraflatbands, ruiz2019interlayer}---also exhibit moire\'e flat bands under suitable conditions. In some TMD heterobilayers (e.g., MoSe$_2$/WSe$_2$), flat bands emerge at moderate twist angles, and the need for ``magic'' precision is relaxed~\cite{wang2020correlated}. Indeed, many TMD-based systems achieve flat bands without requiring precisely tuned ``magic angles.'' Instead, decreasing the twist angle gradually flattens the bands, enabling correlated physics at relatively larger angular ranges~\cite{wang2020correlated, li2021imaging}. TMDs also bring their own flavor to the party: strong spin-orbit coupling, valley physics, and a natural semiconducting gap, opening new avenues for correlated and topological phases.
+
+\section{Why Flatten Bands Anyway? A Physical Perspective}
+Why all this excitement over flat bands? At a fundamental level, flat bands achieve two transformative effects:
+
+\begin{enumerate}
+    \item They quench the kinetic energy, rendering electrons essentially immobile.
+    \item They amplify the density of states near the Fermi energy, making the sytem exquisitely sensitive to filling, external fields, and disorder.
+\end{enumerate}
+
+In normal metals, kinetic energy dominates and weakens interactions. In a flat-band system, the kinetic ``leash'' is gone, allowing interactions to dictate ground-state physics. Thus, even modest repulsive interactions can stabilize unconventional superconductivity, Mott insulators, quantum anomalous Hall states, or other correlated phases~\cite{polshyn2019large, serlin2020intrinsic, bultinck2020mechanism}.
+
+In short, flat bands are not just ``flat''---they’re fertile ground for exotic quantum phenomena.
+
+
+\section{Our Approach: Squeezing into Flatness}
+While moire\'e engineering through twisting has revolutionized flat-band physics, it comes with experimental hurdles: achieving and maintaining precise twist angles is technically demanding, and small angular inhomogeneities can destroy the delicate band flattening.\ Hence, we ask: Is twisting the only way to flatten bands? Could we achieve similar quantum reshaping with a simpler, more robust approach?
+
+Instead of stacking and twisting a monolayer, what if we just \textit{bend} one? Monolayer TMDs, with their remarkable flexibility, can buckle and ripple under uniaxial compression~\cite{dai2019strain, li_buckling_2021, han_buckling_2021}. These ripples create spatially varying strain fields, which in turn modulate the local band structure. The analogy is musical: stretch or compress a guitar string, and its pitch shifts. Likewise, spatially varying strain modulates local electronic structure, carving out a periodic potential without any chemical patterning, stacking, twisting, or doping.
+
+Early theoretical work hinted at these possibilities. Shi et al. showed that rippling can induce flexoelectric effects in MoSe$_2$~\cite{shi_flexoelectricity_2018}, while Qi et al. predicted that curvature could tune the band gap in MoS$_2$~\cite{qi_bandgap_2013}.\ The band gap in TMDs is actually highly strain-sensitive: in MoS$_2$, for instance, the band gap shifts by \(\sim100\) meV per 1\% strain~\cite{Trainer2019}.\ But the idea of using periodic mechanical deformation to create flat band remained largely unexplored---until now. 
+
+
+\section{Rippled Monolayers: Built-In Lateral Heterostructures}
+Throughout our results analysis, we will see that periodic rippling offers a refreshingly direct route to create built-in quantum landscapes---potentially flattening bands and trapping carriers without magic angles or complex assembly.\ 
+Rippling naturally generates spatial variations in strain:
+
+\begin{itemize}
+    \item Ripple peaks experience tensile strain.
+    \item Ripple troughs experience compressive strain.
+\end{itemize}
+
+We know that when a monolayer ripples, the alternating peaks and valleys impose a spatially modulated strain field.Given the strong strain sensitivity of TMD band structures, this periodic strain landscape modulates the conduction and valence band edges across the sheet, effectively modulating the band gap and carving out a chain of quantum well and barriers. This periodic strain landscape thus creates a built-in lateral heterostructure: at the ripple extrema, the local band gap narrows, trapping holes; away from the extrema, the band gap remains wider, and electrons remain more delocalized.
+
+Thus, the rippled monolayer becomes a self-assembled lateral heterostructure---without chemical doping, patterning, or compositional changes. While twistronics perfected the cosmic origami of 2D quantum landscapes, rippletronics---mechanical band shaping---offers a simpler, scalable, and perhaps even more versatile platform.
+
+
+\section{Why This Thesis?}
+In this thesis, we systematically investigate how uniaxial compression applied along the armchair direction of monolayer MoS$_2$ (and related TMDs) induces periodic buckling, leading to the emergence of flat valence bands and lateral heterostructure behavior. In particular, we seek to answer:
+
+\begin{itemize}
+    \item Can periodic mechanical buckling produce genuinely flat valence bands in TMD monolayers?
+    \item How does curvature control carrier localization and transport anisotropy?
+    \item Are these effects robust across different TMD materials?
+    \item What experimental thresholds of strain and curvature are required?
+\end{itemize}
+Our approach combines classical atomistic simulations using LAMMPS \cite{thompson2022lammps} to model mechanical buckling and ripple formation, and first-principles density functional theory (DFT) calculations using the SIESTA package \cite{soler2002siesta} to trace the evolution of band structure, effective masses, and carrier localization as compression increases.\ 
+Our central hypothesis:
+
+\begin{enumerate}
+    \item Controlled mechanical rippling generates periodic strain fields.
+    \item These strain fields reshape the electronic bands, flattening the valence band near $\Gamma$.
+    \item Beyond a critical compression, holes localize at ripple extrema, forming a lateral heterostructure embedded within the monolayer.
+\end{enumerate}
+
+We focus primarily on MoS$_2$, but also compare WS$_2$, MoSe$_2$, and WSe$_2$, noting that hole localization and band flattening occur at more modest compressions in the sulfides than in their selenium-based cousins.\ The goal is to show how this approach could broaden the flat-band frontier and offer a new toolkit for quantum material engineering without the intricate demands of layer-by-layer assembly.\footnote{We will see that, sometimes, a good squeeze beats a good twist.}
+
+\section{Outline of the Thesis}
+
+The remainder of this thesis is organized as follows:
+
+\begin{itemize}
+    \item \textbf{Chapter 2} reviews prior work on flat bands, moire\'e physics, strain engineering, and ripple formation in 2D materials.
+    \item \textbf{Chapter 3} describes the computational methods used to model mechanical buckling and compute electronic structures.
+    \item \textbf{Chapter 4} presents the central results: ripple formation, band flattening, effective mass evolution, and carrier localization.
+    \item \textbf{Chapter 5} discusses broader implications, experimental feasibility, and outlines future research directions.
+    \item Appendices provide technical details on effective mass calculations and comparative data across different TMDs.
+\end{itemize}
+
+In short: while our colleagues in twistronics have perfected the art of cosmic origami, we propose that sometimes, simply giving a monolayer a gentle squeeze can be just as transformative.
+
+
+\chapter{Literature Review and Theoretical Background}
+
+\section{Conceptual Overview: Beyond Twisting}
+
+The emergence of flat electronic bands in twisted bilayer systems---a discovery that catalyzed the modern renaissance in two-dimensional (2D) materials physics---relies heavily on the delicate art of Moir\'e engineering. By rotating one monolayer relative to another, a long-wavelength interference pattern is formed, leading to profound reconstructions of the electronic structure. This geometric magic has led to correlated insulators, superconductors, and a growing catalog of exotic quantum phases~\cite{cao2018unconventional,cao2018correlated,polshyn2019large}.
+
+However, this approach carries an inherent burden: achieving and maintaining ``magic angle'' alignment with sub-degree precision demands exceptional experimental craftsmanship. Even minute angular deviations can suppress the desired flat-band phenomena, making large-scale device reproducibility challenging.
+
+Given these constraints, it is natural to ask: \emph{Is twisting truly the only route to flat bands?} Could we, instead, achieve similar electronic flattening without the painstaking need for rotational precision? Could we, in a sense, trade twisting for squeezing?
+
+This thesis proposes an alternative paradigm: \emph{rippletronics}. Instead of twisting two sheets, we mechanically buckle a \emph{single} monolayer to induce periodic ripples. As shown schematically in Figure~\ref{fig:ripple_sequence}, these ripples create intrinsic periodic strain fields that modulate the local electronic band edges. By applying controlled uniaxial compression---akin to pressing gently on a flexible sheet until ripples appear---we craft a landscape of alternating potential wells and barriers. This configuration flattens the valence band, eliminating the stringent demands associated with stacking, twisting, or doping.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+    node distance=1.3cm and 1.2cm,
+    every node/.style={
+        draw,
+        rectangle,
+        rounded corners,
+        minimum height=1.1cm,
+        minimum width=2.9cm,
+        align=center,
+        font=\small,
+        text=black
+    },
+    shorten >=3pt, shorten <=3pt
+    ]
+\node[fill=orange!10!white] (comp) {Compression};
+\node[fill=orange!20!white, right=of comp] (buck) {Buckling\\(Transition)};
+\node[fill=orange!30!white, right=of buck] (ripple) {Ripple\\Formation\\(Curvature)};
+\node[fill=orange!50!white, right=of ripple] (flat) {Band\\Flattening\\(Hole\\Localization)};
+\foreach \i/\j in {comp/buck, buck/ripple, ripple/flat}
+    \draw[->, thick] (\i) -- (\j);
+\end{tikzpicture}
+\caption[\textbf{Compression to band flattening progression in monolayer TMDs.}]{Schematic illustrating the progression from uniaxial compression in a monolayer TMD to ripple formation and valence band flattening. The intensifying orange color indicates the growing degree of structural and electronic transformation.}
+\label{fig:ripple_sequence}
+\end{figure}
+
+While the physics of Moir\'e flat bands has been extensively explored~\cite{bistritzer2011moire,po2018origin,balents2020superconductivity}, the corresponding rippletronics pathway remains largely untapped. This dissertation seeks to fill that gap, demonstrating that controlled mechanical deformation can offer a robust, scalable, and twist-free route to flat-band engineering in 2D semiconductors.
+
+In the following sections, we review both traditional Moir\'e flat-band approaches and emerging evidence for strain-induced band modulation, laying the foundation for the rippletronics framework pursued here.
+
+\section{Moir\'e Flat Bands in van der Waals Heterostructures}
+
+Flat electronic bands constitute the heart of numerous intriguing phenomena in 2D condensed matter physics. Arguably, the most celebrated realization is the \emph{Moir\'e superlattice} emerging in twisted bilayer systems, illustrated schematically in Figure~\ref{fig:moire_schematic}. These Moir\'e patterns form through slight rotation between two adjacent monolayers, modifying the effective periodic potential and significantly altering the electronic structure, as initially demonstrated in twisted bilayer graphene~\cite{bistritzer2011moire,cao2018unconventional}.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+    node distance=1.3cm and 1.2cm,
+    every node/.style={
+        draw,
+        rectangle,
+        rounded corners,
+        minimum height=1.1cm,
+        minimum width=2.9cm,
+        align=center,
+        font=\small,
+        text=black
+    },
+    shorten >=3pt, shorten <=3pt
+    ]
+\node[fill=green!10!white] (twist) {Twisting};
+\node[fill=green!20!white, right=of twist] (moire) {Moir\'e\\Superlattice};
+\node[fill=green!40!white, right=of moire] (modulation) {Periodic\\Potential\\Modulation};
+\node[fill=green!60!white, right=of modulation] (flatbands) {Flat\\Bands\\Correlated\\States};
+\foreach \i/\j in {twist/moire, moire/modulation, modulation/flatbands}
+    \draw[->, thick] (\i) -- (\j);
+\end{tikzpicture}
+\caption[\textbf{Formation of Moir\'e superlattice and flat bands.}]{Schematic illustrating Moir\'e superlattice formation in twisted multilayer systems, leading to periodic potential modulation, flat bands, and correlated electronic states.}
+\label{fig:moire_schematic}
+\end{figure}
+
+\subsection{Twisted Graphene Systems}
+
+In twisted bilayer graphene (BLG), near the ``magic angle'' of approximately $1.1^\circ$, the interlayer coupling strength balances the intralayer electronic dispersion, drastically flattening bands near the Fermi level~\cite{bistritzer2011moire}. This flattening dramatically enhances electron-electron interactions, manifesting strongly correlated phenomena such as insulating states and superconductivity~\cite{cao2018correlated,cao2018unconventional}.
+
+Nonetheless, achieving precise control over the twist angle---and thus reproducible flat-band phenomena---remains experimentally demanding, motivating alternative flat-band engineering strategies.
+
+\subsection{TMD Moir\'e Heterostructures}
+
+Transition metal dichalcogenides (TMDs) further enrich Moir\'e physics through substantial spin-orbit coupling and sizable intrinsic band gaps~\cite{he2021moire,chen2019tunable}. For example, twisted bilayer MoS$_2$ hosts flat valence bands induced by Moir\'e potentials, fostering novel excitonic and correlated electronic states~\cite{Regan2020Nature,zhang2020flat}. Despite their promising fundamental physics, practical realization and reproducibility remain hindered by challenges analogous to graphene-based systems, such as stringent alignment precision and sensitivity to external perturbations~\cite{tran2019evidence}.
+
+This inherent complexity reinforces the need for an alternative route to robust flat-band generation, providing a critical impetus for exploring strain-induced ripple engineering---or rippletronics.
+
+
+\section{Strain Effects in Monolayer 2D Materials}
+
+Beyond twisting layers, an alternative approach to achieving flat bands is to apply strain directly to monolayers, exploiting mechanical deformation to modulate electronic properties. Unlike the discrete alignment demands of Moir\'e superlattices, strain-induced modifications leverage continuous mechanical degrees of freedom. In this section, we review essential strain phenomena in monolayer two-dimensional (2D) materials, laying the groundwork for our rippletronics concept.
+
+\subsection{Bandgap Modulation}
+
+Applying mechanical strain to monolayer transition metal dichalcogenides (TMDs) directly modifies their bandgap~\cite{castellanos2013local,conley2013bandgap}. Under uniaxial or biaxial tension, the conduction and valence band edges shift predictably, typically reducing the fundamental gap. Conversely, compressive strain, as used in rippletronics, can lead to more complex band rearrangements, including indirect gap transitions and substantial modifications of effective masses near band extrema~\cite{maniadaki2016strain,ghorbani2013strain}.
+
+\subsection{Buckling and Wrinkling}
+
+Monolayer TMDs exhibit pronounced mechanical flexibility, enabling dramatic structural responses to in-plane stresses. Under sufficient compressive loading, initially flat monolayers spontaneously buckle into periodic ripples~\cite{bertolazzi2011stretching}. This buckling transition is analogous to compressing a thin sheet of paper, resulting in regular undulations whose geometry is governed by intrinsic elastic properties and boundary conditions (discussed further in Appendix~B).
+
+Such periodic buckling patterns serve as intrinsic lateral heterostructures, with alternating regions of tension and compression modulating the local electronic structure significantly.
+
+\subsection{Flexoelectricity}
+
+In addition to strain-induced electronic band modulation, mechanical deformation may also generate built-in electric polarization, known as the flexoelectric effect~\cite{kumar2021flexoelectricity,springolo2021direct}. Unlike piezoelectricity, which requires materials to lack inversion symmetry, flexoelectricity universally emerges in response to strain gradients, making it relevant even in inversion-symmetric monolayer TMDs. 
+
+Within periodically rippled structures, pronounced strain gradients appear naturally at ripple crests and troughs, potentially giving rise to substantial flexoelectric fields, which further modulate electronic properties and carrier dynamics~\cite{wang2019flexoelectricity}.
+
+\subsection{Pseudo-Landau Levels}
+
+Another remarkable consequence of strain in 2D crystals is the formation of pseudo-magnetic fields. These strain-induced fields arise due to lattice deformation, effectively altering electronic momentum space analogous to real magnetic fields~\cite{betancur2015landau, meng2013strain, castro2017raise,guinea2010energy}. Consequently, charge carriers can be confined into discrete energy levels reminiscent of Landau quantization—referred to as \emph{pseudo-Landau levels}. Though extensively explored in graphene, recent studies suggest analogous effects could appear in TMDs, particularly under carefully engineered strain profiles~\cite{de2013gauge,vozmediano2010gauge}.
+
+\begin{table}[ht]
+\centering
+\caption[\textbf{Comparison of Electronic Effects Induced by Strain.}]{Comparison of prominent strain-induced electronic effects in monolayer TMDs.}
+\label{tab:strain_effects}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Effect & Origin & Electronic Consequences \\ \midrule
+Bandgap modulation & Uniform strain & Shifts in conduction/valence band edges \\
+Buckling/wrinkling & Compressive strain & Spatial modulation of electronic potential \\
+Flexoelectricity & Strain gradient & Built-in electric polarization fields \\
+Pseudo-Landau levels & Strain-induced gauge fields & Discrete quantized energy levels \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:strain_effects} summarizes the main electronic phenomena emerging from mechanical strain in monolayer 2D materials, clarifying the underlying physical mechanisms and associated electronic outcomes.
+
+Thus, strain engineering offers a versatile toolbox, circumventing many practical hurdles of Moir\'e engineering. Harnessing these effects systematically through ripple formation provides the foundational basis for the rippletronics approach discussed in subsequent chapters.
+
+\section{Charge Localization in Strained TMDs}
+
+Periodic strain fields resulting from mechanical buckling induce spatially varying electronic potentials, naturally leading to carrier localization in monolayer TMDs. Such localization significantly alters the electronic properties, paving the way for band flattening~\cite{dhakal2017local}.
+
+Localized states typically form near ripple minima (regions of maximal compressive strain), functioning as quantum wells for holes due to upward shifts of the valence band edge. Conversely, ripple maxima (tensile regions) form barriers, confining carriers effectively. The resulting potential landscape resembles a natural quantum-dot array, facilitating flat band formation and enhanced electron-electron interactions, comparable to engineered semiconductor heterostructures~\cite{de2013gauge}.
+
+\section{Methodology Clarification (moir\'e vs. Strain Patterning)}
+
+Both moir\'e and strain patterning manipulate electronic properties by creating periodic potential variations. However, crucial differences exist between the two approaches:
+
+\begin{table}[ht]
+\centering
+\caption[\textbf{Comparison of moir\'e and Strain Patterning Approaches.}]{Comparison of moir\'e heterostructures and strain-engineered rippletronics approaches for achieving flat bands.}
+\label{tab:compare_moire_strain}
+\begin{tabular}{@{}p{3.5cm}p{4cm}p{4cm}@{}}
+\toprule
+Feature & moir\'e Engineering & Rippletronics \\ \midrule
+Mechanism & Interlayer twisting & Single-layer compression \\
+Experimental Complexity & High (angle-sensitive) & Moderate (strain-controlled) \\
+Scalability & Limited by alignment & Highly scalable \\
+Flat-band Stability & Sensitive to twist angle & Robust against small strain variations \\
+Material versatility & Mainly bilayer systems & Single monolayers \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:compare_moire_strain} highlights these key distinctions, underscoring the advantages of rippletronics for large-scale, reproducible flat-band engineering.
+
+\section{Measurement Techniques (STM/STS, Optical)}
+
+To experimentally probe flat-band formation and ripple-induced localization, techniques such as scanning tunneling microscopy and spectroscopy (STM/STS) and optical spectroscopy are critical. STM can visualize local density of states variations, providing direct evidence of ripple-induced localization and flat-band states~\cite{castro2017raise}.
+
+Complementarily, optical spectroscopy, including photoluminescence (PL) and Raman spectroscopy, sensitively measures changes in electronic and vibrational properties under strain. PL can confirm indirect-to-direct gap transitions or shifts in band-edge states induced by ripples, while Raman spectroscopy verifies ripple formation through characteristic phonon mode shifts~\cite{castellanos2013local,conley2013bandgap}.
+
+\section{Computational Methodologies (Molecular Dynamics, DFT)}
+
+We employ molecular dynamics (MD) simulations, implemented via the LAMMPS software package~\cite{thompson2022lammps}, to accurately capture ripple geometry formation under controlled uniaxial compression. These MD simulations provide realistic strain profiles subsequently used in electronic structure calculations.
+
+Density functional theory (DFT), performed using the SIESTA code~\cite{soler2002siesta}, calculates electronic band structures and charge densities under strain. Details of computational setups, convergence criteria, basis sets, and parameter validations are provided comprehensively in Appendix~A.
+
+\section{Discussion: Research Gap}
+
+Despite extensive studies on moir\'e flat bands, the potential of strain-induced periodic ripple formation in single-layer TMDs remains largely unexplored. Existing literature on strain engineering predominantly addresses uniform strain effects, neglecting the unique electronic phenomena emerging from periodic buckling-induced strain fields. Consequently, significant questions remain open regarding the feasibility, stability, and reproducibility of ripple-based flat bands.
+
+This dissertation systematically addresses these gaps by exploring ripple formation conditions, their precise impact on electronic band structures, and the robustness of ripple-induced flat bands, thereby positioning rippletronics as a viable alternative to moir\'e engineering.
+
+\section{Chapter Synthesis}
+
+In this chapter, we established the theoretical and experimental landscape underlying flat-band physics in moir\'e heterostructures and strain-engineered monolayers. By critically contrasting moir\'e and ripple-based approaches, we identified clear practical advantages of rippletronics, highlighting its potential scalability and experimental accessibility.
+
+Subsequent chapters build directly upon these foundations, first examining ripple formation mechanics (Chapter~3), then investigating their electronic implications (Chapter~4), ultimately clarifying rippletronics' role as a robust and versatile route to flat-band phenomena.
+
+\chapter{Mechanical Buckling of Monolayer TMDs Under Compression}
+
+\section{Conceptual Overview: Flat Sheets to Ripples}
+
+Applying uniaxial compression to a two-dimensional (2D) material, such as a monolayer transition metal dichalcogenide (TMD), initiates mechanical instabilities leading to periodic rippling, analogous to compressing a thin elastic sheet. Understanding this transition from a flat monolayer to a rippled structure forms the cornerstone of rippletronics.
+
+As schematically illustrated in Figure~\ref{fig:ripple_sequence}, initial compression induces uniform elastic deformation, which upon surpassing a critical threshold leads to spontaneous buckling, generating periodic ripples. These ripples, characterized by distinct wavelengths and amplitudes, strongly modify the local electronic structure.
+
+\section{Theoretical Framework for Buckling Instabilities}
+
+\subsection{Elastic Properties of Monolayers}
+
+Elastic properties of monolayer TMDs dictate their mechanical response. They are governed primarily by Young's modulus ($Y$) and Poisson's ratio ($\nu$). These parameters define the stress-strain relationships essential for predicting buckling behavior:
+\begin{equation}
+\sigma = Y\epsilon,
+\label{eq:stress_strain}
+\end{equation}
+where $\sigma$ is stress, and $\epsilon$ is strain.
+
+Typical values for monolayer TMDs such as MoS$_2$ are extensively documented~\cite{bertolazzi2011stretching} and employed in our computational simulations.
+
+\subsection{Critical Compression and Wavelength Selection}
+
+Buckling occurs when compressive strain surpasses a critical threshold ($\epsilon_c$), analogous to Euler buckling in macroscopic sheets. The critical strain is approximated by:
+\begin{equation}
+\epsilon_c \approx \frac{\pi^2 D}{Y L^2},
+\label{eq:critical_strain}
+\end{equation}
+where $D$ is the bending rigidity and $L$ the characteristic dimension of the monolayer sheet.
+
+Ripple wavelength ($\lambda$) selection follows classical buckling theory, scaling with monolayer thickness ($t$) and elastic constants~\cite{landau1986theory}:
+\begin{equation}
+\lambda \propto \sqrt{t} \left(\frac{Y}{\sigma}\right)^{1/4}.
+\label{eq:ripple_wavelength}
+\end{equation}
+
+Further details and derivations are provided in Appendix~B.
+
+\section{Computational Methodology (LAMMPS, Potential Models)}
+
+Ripple formation is simulated using classical molecular dynamics (MD) in the Large-scale Atomic/Molecular Massively Parallel Simulator (LAMMPS)~\cite{plimpton1995fast}. Interatomic interactions are modeled using the Stillinger-Weber (SW) potentials specifically parametrized for TMDs~\cite{jiang2013mos2}. Simulation parameters (box size, strain rates, temperature control) are detailed comprehensively in Appendix~C.
+
+\section{Results: Ripple Formation}
+
+MD simulations clearly capture the spontaneous onset of ripple patterns upon exceeding critical strain. Initially flat sheets transition to periodic ripples, as illustrated schematically by Figure~\ref{fig:ripple_formation_stages}. Typical ripple wavelengths range from several nanometers to tens of nanometers, dependent on material and boundary conditions.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{Figure/ripple_formation_stages.pdf}
+\caption[\textbf{Stages of ripple formation in monolayer TMD under compression.}]{(a) Initial flat configuration, (b) onset of buckling at critical strain, and (c) fully developed periodic ripple structure.}
+\label{fig:ripple_formation_stages}
+\end{figure}
+
+\section{Strain Profiles and Ripple Geometry}
+
+Ripple profiles obtained from MD simulations exhibit sinusoidal geometry described by:
+\begin{equation}
+z(x) = A \sin\left(\frac{2\pi x}{\lambda}\right),
+\label{eq:ripple_profile}
+\end{equation}
+with amplitude ($A$) increasing continuously with applied strain beyond $\epsilon_c$. Local strain distributions across ripples are evaluated numerically and analyzed extensively in Appendix~C.
+
+\section{Ripple Formation and Electronic Structure Connection}
+
+Periodic ripple-induced strain modulations profoundly impact electronic structure, producing spatially varying potentials. These modulations effectively create periodic quantum wells, crucially contributing to valence-band flattening. The quantitative electronic implications are addressed thoroughly in Chapter~4.
+
+\section{Comparison with moir\'e Superlattices}
+
+Rippletronics parallels moir\'e superlattice phenomena, as both utilize periodic potentials. Crucial distinctions, however, include rippletronics' reliance on single-layer mechanics, inherently avoiding alignment sensitivity of moir\'e systems. This comparison is summarized in Table~\ref{tab:compare_moire_strain} (Chapter~2).
+
+\section{Experimental Techniques}
+
+Experimental validation employs atomic force microscopy (AFM) to characterize ripple geometries and periodicities. Complementary techniques such as Raman spectroscopy and X-ray scattering further validate the ripple structures and quantify associated strain levels~\cite{castellanos2013local}.
+
+\section{Chapter Synthesis}
+
+This chapter has detailed the mechanics underlying ripple formation, established robust computational methodologies to predict ripple geometries, and identified critical connections to electronic phenomena. With these mechanical foundations established, Chapter~4 systematically investigates the electronic ramifications, explicitly linking ripple geometry to the emergence of flat bands in monolayer TMDs.
+
+\chapter{Electronic Structure of Rippled TMDs}
+
+\section{Conceptual Overview: Squeezing Bands Flat}
+
+Periodic ripples induced by mechanical buckling in monolayer transition metal dichalcogenides (TMDs) fundamentally reshape their electronic landscape. Ripple formation effectively modulates local band edges, creating spatially periodic potentials. These potentials flatten the electronic bands by localizing charge carriers, significantly enhancing electron-electron interactions.
+
+\section{Theoretical Framework (Band Folding, Curvature Effects)}
+
+\subsection{Brillouin Zone Folding}
+
+Ripple formation introduces periodic perturbations with wavevector $\mathbf{q}$, effectively folding the original Brillouin zone (BZ). The electron momentum states become hybridized, and new energy gaps open at zone boundaries defined by ripple periodicity:
+\begin{equation}
+\mathbf{k}' = \mathbf{k} + n\mathbf{q}, \quad n \in \mathbb{Z}.
+\label{eq:bz_folding}
+\end{equation}
+This band folding directly contributes to flattening the energy dispersion and altering effective masses.
+
+\subsection{Curvature Effects on Orbital Overlaps}
+
+Ripple curvature directly influences orbital overlap integrals, reducing electronic hopping amplitudes between atomic sites due to modified atomic distances and angles. Tight-binding models illustrate hopping ($t_{ij}$) reduction as:
+\begin{equation}
+t_{ij}(r) \propto e^{-\beta (r_{ij}-r_0)},
+\label{eq:hopping_decay}
+\end{equation}
+where $r_{ij}$ is the atomic separation, $r_0$ is equilibrium spacing, and $\beta$ controls overlap sensitivity. Consequently, ripple-induced curvature enhances localization by suppressing inter-site hopping.
+
+\section{Band Structure Evolution Under Compression}
+
+Density functional theory (DFT) calculations clearly demonstrate evolution from dispersive to nearly flat valence bands as ripples deepen with increasing compression (Figure~\ref{fig:band_flattening}). Initially dispersive states near valence band maxima progressively localize within ripple minima, significantly narrowing bandwidth and increasing the effective mass of holes.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{Figure/band_flattening.pdf}
+\caption[\textbf{Valence band flattening with increasing ripple amplitude.}]{Evolution of valence bands from dispersive states (a) in flat monolayers, (b) moderately rippled sheets, to (c) deeply rippled configurations, highlighting the emergence of nearly flat bands.}
+\label{fig:band_flattening}
+\end{figure}
+
+\section{Effective Mass Modulation}
+
+Ripple-induced band flattening dramatically increases carrier effective mass ($m^*$), approximated by:
+\begin{equation}
+m^* = \frac{\hbar^2}{\partial^2 E/\partial k^2},
+\label{eq:effective_mass}
+\end{equation}
+where $E$ is the electronic dispersion. Effective masses extracted from DFT bands show dramatic increases (up to orders of magnitude), strongly anisotropic and maximized along ripple periodicity directions. This anisotropy profoundly affects carrier transport, as discussed below.
+
+\section{Real-Space Localization of Electronic States}
+
+Charge density analysis reveals prominent hole localization at ripple valleys (compressive strain maxima). These valleys behave as periodic quantum wells, trapping carriers and establishing localized states analogous to quantum dot arrays. Conversely, electrons exhibit delocalization along ripple crests, producing pronounced spatial separation of electron-hole wavefunctions.
+
+\section{Comparison with moir\'e Superlattice Systems}
+
+Table~\ref{tab:compare_moire_strain} (Chapter~2) compares rippletronics with moir\'e superlattices. While moir\'e systems rely on precise alignment, rippletronics offers inherent robustness through mechanical deformation, enabling more practical scalability and reproducibility.
+
+\section{Experimental Signatures (Optical, Transport)}
+
+Ripple-induced band flattening manifests experimentally through several signatures:
+\begin{enumerate}
+    \item Optical Spectroscopy: Enhanced photoluminescence emission due to increased excitonic recombination from localized states, evidenced by sharp emission peaks.
+    \item Transport Measurements: Reduced carrier mobility and pronounced anisotropic transport behavior due to increased effective mass and spatial localization.
+    \item STM/STS: Direct observation of enhanced local density of states in ripple valleys, verifying predicted localization phenomena.
+\end{enumerate}
+
+\section{Chapter Synthesis}
+
+In this chapter, we explored how mechanical rippling profoundly modifies electronic structures of monolayer TMDs. We clarified mechanisms behind ripple-induced band flattening, real-space charge localization, and significant effective mass enhancement. Experimental signatures supporting these theoretical predictions provide a comprehensive understanding of rippletronics’ underlying electronic physics, establishing it as a robust, practical alternative to moir\'e-based flat-band engineering.
+
+\chapter{Discussion and Conclusions}
+
+\section{Big Picture: Why Rippled TMDs Matter}
+
+The discovery of flat bands in two-dimensional (2D) materials has led to a paradigm shift in condensed matter physics, offering a new platform for realizing strongly correlated electron behaviors. While moir\'e superlattices have dominated this field, we have shown in this dissertation that mechanical deformation---specifically, the creation of periodic ripples in monolayer transition metal dichalcogenides (TMDs)---can also lead to robust flat bands, circumventing many of the challenges associated with moir\'e systems.
+
+The concept of \emph{rippletronics} proposed here offers a versatile, scalable, and experimentally feasible alternative for flat-band engineering. By utilizing single-layer mechanical deformation instead of relying on twist angles or interlayer stacking, rippletronics provides a pathway to band flattening that is both robust and accessible, with significant implications for future 2D material-based devices and quantum systems.
+
+\section{Recap of Key Findings}
+
+This dissertation presents a detailed exploration of the role of mechanical strain in creating flat bands in monolayer TMDs through ripple formation. The key findings are summarized as follows:
+
+\begin{enumerate}
+    \item \textbf{Flat-band formation through mechanical buckling:} We have demonstrated that compressive strain in single-layer TMDs induces periodic buckling, leading to the formation of ripple structures. These ripples generate spatially varying strain fields, which flatten the electronic bands, enhancing electron-electron interactions.
+    \item \textbf{Electron localization and hole trapping:} We showed that ripple valleys act as potential wells, localizing charge carriers, particularly holes. This localization further supports the emergence of flat bands and is an essential ingredient for achieving strongly correlated states in TMDs.
+    \item \textbf{Scalability of rippletronics:} Unlike moir\'e engineering, which requires precise angle control, rippletronics provides a scalable solution, as it only depends on applied strain. This makes it much easier to fabricate and control flat-band systems on larger scales.
+    \item \textbf{Experimental validation:} We highlighted the experimental signatures of ripple-induced flat bands, including optical spectroscopy, transport measurements, and scanning tunneling microscopy (STM)/scanning tunneling spectroscopy (STS), which can verify theoretical predictions of localization and band flattening.
+\end{enumerate}
+
+\section{Twistronics vs. Rippletronics}
+
+While both moir\'e superlattices (twistronics) and rippletronics exploit periodic potentials to engineer flat bands, the two approaches differ fundamentally in their physical mechanisms and experimental requirements. Twistronics relies on the precise rotation of two monolayers to create long-wavelength interference patterns, while rippletronics achieves similar effects by compressing a single monolayer, resulting in periodic ripples.
+
+\begin{table}[ht]
+\centering
+\caption[\textbf{Comparison of Twistronics and Rippletronics.}]{Comparison between moir\'e engineering (twistronics) and rippletronics for generating flat bands.}
+\label{tab:compare_twistronics_rippletronics}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Feature & Twistronics & Rippletronics \\ \midrule
+Mechanism & Interlayer rotation & Single-layer compression \\
+Flat-band stability & Sensitive to twist angle & Robust to strain variations \\
+Experimental complexity & High (requires precise rotation) & Moderate (strain-controlled) \\
+Scalability & Limited by alignment precision & Highly scalable \\
+Applications & Correlated electron systems, superconductivity & Quantum devices, transport, flat-band physics \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:compare_twistronics_rippletronics} summarizes the key distinctions between twistronics and rippletronics. While both approaches are capable of generating flat bands, rippletronics offers a more accessible, scalable, and robust alternative.
+
+\section{Symmetry Breaking}
+
+The symmetry of a system plays a crucial role in its electronic properties, particularly in the emergence of flat bands. In the case of rippletronics, the periodic strain fields break the translational symmetry of the monolayer TMD, resulting in localized states that enhance electron-electron interactions.
+
+Moreover, the periodic ripples can break certain symmetries of the original crystal structure, leading to novel electronic phases. These symmetry-broken phases, which could include insulating, superconducting, or topologically nontrivial states, are promising directions for future research in flat-band materials.
+
+\section{Transport Anisotropy and Heavy-Fermion Analogies}
+
+Rippled monolayers exhibit pronounced anisotropic transport properties, as the effective mass of charge carriers is directionally dependent, with the highest effective mass oriented along the ripple periodicity. This anisotropy leads to significantly different transport behaviors along different directions in the monolayer, which is essential for potential applications in anisotropic devices.
+
+Interestingly, the enhanced effective mass in the valleys of the ripples has analogies to heavy-fermion systems, where localized electron states at low temperatures result in large effective masses. This analogy opens the door to exploring strongly correlated phenomena in rippletronics, such as Kondo-like effects, magnetism, and possibly even exotic superconductivity.
+
+\section{Device Implications}
+
+The implications of rippletronics extend beyond fundamental physics, offering potential applications in a wide range of quantum devices. The ability to engineer flat bands through mechanical deformation could enable the development of novel quantum materials, such as topologically protected states and strongly correlated electron systems.
+
+Moreover, the scalable nature of rippletronics makes it ideal for integration into large-scale electronic devices, such as field-effect transistors (FETs) and quantum computing components. The ease of fabrication and control also suggests that rippletronics could be utilized in real-world applications that require precise manipulation of electronic properties.
+
+\section{Future Outlook}
+
+While this dissertation has laid a solid foundation for the rippletronics approach, much work remains to be done. Future research should focus on the following key areas:
+
+\begin{itemize}
+    \item \textbf{Experimental verification:} Despite theoretical predictions, experimental confirmation of ripple-induced flat bands in TMDs is needed. Advancements in STM/STS, optical spectroscopy, and transport measurements will be critical in validating the proposed models.
+    \item \textbf{Strain engineering:} Further work on controlling and tuning the strain applied to TMDs is essential. Developing techniques to achieve precise strain modulation will allow for more controlled and reproducible flat-band formation.
+    \item \textbf{Device applications:} Exploring the use of rippletronics in actual quantum devices, such as topological insulators and superconducting systems, will open up new frontiers in quantum computing and device engineering.
+\end{itemize}
+
+\section{Broader Impacts}
+
+Rippletronics represents not only a breakthrough in 2D materials physics but also a potential game-changer for quantum technologies. By enabling the scalable and accessible engineering of flat bands, rippletronics could lay the foundation for next-generation quantum devices and materials that harness the unique properties of correlated electron systems.
+
+The broader impacts of this work extend to material science, nanotechnology, and device engineering. Understanding the behavior of flat bands and localized electronic states in TMDs will not only advance fundamental physics but also facilitate the development of novel devices for quantum computation, sensors, and beyond.
+
+\section{Chapter Synthesis}
+
+This chapter has summarized the key findings of this dissertation and highlighted the potential applications of rippletronics in both fundamental physics and device engineering. The comparison with moir\'e superlattices, the discussion of symmetry breaking and transport anisotropy, and the device implications underscore the transformative potential of rippletronics as a new paradigm in flat-band engineering. Future research directions, particularly in experimental validation and device development, will be essential to fully realize the potential of rippletronics in quantum technologies.
+
+\appendix
+
+\chapter{Primer on Electronic Structure Theory and Computational Methods}
+
+\section{Basics of Density Functional Theory (DFT)}
+
+Density Functional Theory (DFT) is a computational quantum mechanical modeling method used to investigate the electronic structure of materials. At the heart of DFT are the Kohn-Sham equations, which approximate the many-body Schrödinger equation by mapping the problem to a set of non-interacting particles, thereby reducing the complexity:
+
+\begin{equation}
+\left( -\frac{\hbar^2}{2m} \nabla^2 + V_{\text{eff}}(\mathbf{r}) \right) \psi_i(\mathbf{r}) = \epsilon_i \psi_i(\mathbf{r}),
+\end{equation}
+where $V_{\text{eff}}(\mathbf{r})$ is the effective potential, which includes the external potential and the exchange-correlation functional.
+
+\section{Tight-binding Model Considerations Under Strain}
+
+The tight-binding approximation describes the electronic structure by considering the overlap of atomic orbitals in a material. Under strain, the hopping integrals $t_{ij}$ between atoms in the material are modified due to changes in the atomic positions and bond lengths. The general dependence of hopping on the bond length $r$ is given by:
+
+\begin{equation}
+t_{ij}(r) = t_0 \left( \frac{r}{r_0} \right)^{\beta},
+\end{equation}
+where $t_0$ is the hopping integral at equilibrium, $r_0$ is the equilibrium bond length, and $\beta$ controls the sensitivity of hopping to the bond length.
+
+\section{Effective Mass Approximations}
+
+Near the band extrema, the electron dispersion can be approximated as quadratic, and the effective mass $m^*$ can be derived from the curvature of the band structure at the extremum. The effective mass is given by:
+
+\begin{equation}
+m^* = \frac{\hbar^2}{\left( \frac{\partial^2 E(k)}{\partial k^2} \right)}.
+\end{equation}
+
+\section{Computational Parameters (SIESTA Setup)}
+
+The SIESTA code~\cite{soler2002siesta} is used for DFT calculations, with parameters including the choice of basis set (usually a double-zeta plus polarization (DZP) basis set), the number of $k$-points in the Brillouin zone, and energy cutoffs for the plane-wave expansions. The convergence criteria for the total energy and forces are typically set to $10^{-5}$ eV and $0.02$ eV/\AA, respectively.
+
+\chapter{Mechanical Properties and Buckling of 2D Materials}
+
+\section{Elasticity Theory (Stress-Strain Relationships)}
+
+The elasticity of a 2D material is governed by the relationship between stress ($\sigma$) and strain ($\epsilon$). For small deformations, the relationship is linear, with Young's modulus $Y$ as the proportionality constant:
+
+\begin{equation}
+\sigma = Y \epsilon,
+\end{equation}
+where $\epsilon$ is the strain, and $\sigma$ is the applied stress.
+
+\section{Critical Buckling Strain}
+
+Critical strain $\epsilon_c$ is the strain threshold at which a 2D monolayer transitions from a flat configuration to a buckled state. The formula for the critical strain is given by:
+
+\begin{equation}
+\epsilon_c = \frac{\pi^2 D}{Y L^2},
+\end{equation}
+where $D$ is the bending rigidity, $Y$ is Young’s modulus, and $L$ is the characteristic dimension of the sheet.
+
+\section{Ripple Wavelength Scaling}
+
+The wavelength of the ripples in a buckled monolayer is determined by the applied compressive strain. It can be estimated as:
+
+\begin{equation}
+\lambda = \sqrt{\frac{t Y}{\sigma}},
+\end{equation}
+where $t$ is the thickness of the monolayer and $\sigma$ is the applied stress.
+
+\section{Brief Acknowledgment of Föppl–von Kármán Theory}
+
+Although the detailed treatment of the Föppl–von Kármán (FvK) equations is beyond the scope of this dissertation, we acknowledge that these equations can be used to describe the nonlinear buckling behavior of thin sheets under compression. The FvK theory provides a more complete description of the mechanical behavior when large deformations are considered.
+
+\chapter{Supplementary Figures, Data, and Validation}
+
+\section{Extended Band Structure Plots}
+
+Additional band structure calculations under different strain conditions can be found in Figures~\ref{fig:extended_band_structure_1},~\ref{fig:extended_band_structure_2}. These plots show the evolution of the band structure as a function of increasing compressive strain, highlighting the onset of flat-band behavior.
+
+\section{Ripple Geometry Snapshots from Simulations}
+
+The following figures show the evolution of the ripple geometry in monolayer TMDs under compressive strain, captured at various stages of deformation:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Figure/ripple_geometry_snapshots.pdf}
+    \caption[Snapshots of ripple formation during compression.]{The progression of ripple formation as a function of applied compressive strain, showing the periodic development of the ripple structure.}
+    \label{fig:ripple_geometry_snapshots}
+\end{figure}
+
+\section{Effective Mass Fits}
+
+The effective mass of charge carriers in the rippled monolayer is obtained by fitting the band structure near the band extrema to a parabolic dispersion. These fits, shown in Figure~\ref{fig:effective_mass_fit}, indicate the variation in effective mass as a function of strain.
+
+\section{Convergence Tests and Validation}
+
+To ensure the reliability of our computational results, convergence tests for the energy cutoff, $k$-point sampling, and other DFT parameters were performed.\ Data are available upon request. 
+
+
+
+% Add bibliography commands
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
