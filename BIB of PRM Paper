@@ -1,0 +1,980 @@
+#############################################
+# vdW 2D materials
+@article{Trainer2019,
+	title = {The {Effects} of {Atomic}-{Scale} {Strain} {Relaxation} on the {Electronic} {Properties} of {Monolayer} {MoS2}},
+	volume = {13},
+	issn = {1936-0851},
+	url = {https://doi.org/10.1021/acsnano.9b03652},
+	doi = {10.1021/acsnano.9b03652},
+	abstract = {The ability to control nanoscale electronic properties by introducing macroscopic strain is of critical importance for the implementation of two-dimensional (2D) materials into flexible electronics and next-generation strain engineering devices. In this work, we correlate the atomic-scale lattice deformation with a systematic macroscopic bending of monolayer molybdenum disulfide films by using scanning tunneling microscopy and spectroscopy implemented with a custom-built sample holder to control the strain. Using this technique, we are able to induce strains of up to 3\% before slipping effects take place and relaxation mechanisms prevail. We find a reduction of the quasiparticle bandgap of about 400 meV per percent local strain measured with a minimum gap of 1.2 eV. Furthermore, unintentional nanoscale strain relaxation of van der Waals monolayer sheets can negatively impact strain engineered device performance. Here we investigate such strain relaxation mechanisms that include one-dimensional ripples and 2D wrinkles which alter the spatial electronic density of states and strain distribution on the atomic scale.},
+	number = {7},
+	urldate = {2025-01-10},
+	journal = {ACS Nano},
+	author = {Trainer, Daniel J. and Zhang, Yuan and Bobba, Fabrizio and Xi, Xiaoxing and Hla, Saw-Wai and Iavarone, Maria},
+	month = jul,
+	year = {2019},
+	note = {Publisher: American Chemical Society},
+	pages = {8284--8291},
+	file = {Full Text PDF:/Users/darylchrzan/Zotero/storage/HA3JSJKZ/Trainer et al. - 2019 - The Effects of Atomic-Scale Strain Relaxation on t.pdf:application/pdf},
+}
+@article{li_molecular_2019,
+	title = {Molecular dynamics simulation on the buckling of single-layer {MoS2} sheet with defects under uniaxial compression},
+	volume = {162},
+	issn = {0927-0256},
+	url = {https://www.sciencedirect.com/science/article/pii/S0927025619301181},
+	doi = {10.1016/j.commatsci.2019.02.043},
+	abstract = {The buckling behavior of a single layer MoS2 (SLMoS2) sheet with defects under uniaxial compression is investigated with molecular simulation in the present paper. Five typical defects are introduced to estimate the instability characteristics of defective MoS2 sheet. The buckling responses, including the critical strain and geometric morphology, influenced by defect type, stain rate, defect density and so on, are comprehensively explored. It is found that different type of defects results in reduction of the bending modulus to some different extent. Compared with the other three post-buckling morphologies, the first typical geometric morphology show the biggest difference between the defect-free and defective SLMoS2 sheets. It seems possible to realize our desired morphology in flexible electronics by proper preparing different kinds of defects. The finding in the present paper should be useful for the promising design of flexible optoelectronic devices and soft bioelectronics.},
+	urldate = {2024-09-30},
+	journal = {Computational Materials Science},
+	author = {Li, Yao and Chen, Peijian and Zhang, Cun and Peng, Juan and Gao, Feng and Liu, Hao},
+	month = may,
+	year = {2019},
+	keywords = {Buckling, Compression, Defects, Molybdenum disulphide},
+	pages = {116--123},
+	file = {ScienceDirect Snapshot:/Users/darylchrzan/Zotero/storage/CVB74VV9/S0927025619301181.html:text/html},
+}
+
+
+@article{han_buckling_2021,
+	title = {The buckling behavior of single-layer {MoS2} sheets with kirigami-inspired structures under compression},
+	volume = {188},
+	issn = {0927-0256},
+	url = {https://www.sciencedirect.com/science/article/pii/S0927025620306790},
+	doi = {10.1016/j.commatsci.2020.110188},
+	abstract = {The buckling behavior of single-layer MoS2 sheets under both uniaxial and biaxial compression is studied in the present paper. The critical strain, critical stress, equivalent elastic modulus as well as post-buckling morphologies are comprehensively studied. It is found that both the critical stress and equivalent elastic modulus of SLMoS2 sheets with kirigami-inspired structures are reduced significantly compared with perfect ones. The geometric parameters of kirigami-inspired structures in armchair and zigzag directions have different effects on the compressive behavior of SLMoS2 sheets. SLMoS2 sheets that sustain more strain could be realized by introducing kirigami-inspired structures. What is more, a desired post-bulking morphology can be obtained by properly tuning kirigami-inspired structures. The results should be helpful for various practical and potential applications of the new 2D material.},
+	urldate = {2024-09-30},
+	journal = {Computational Materials Science},
+	author = {Han, Yekun and Chen, Peijian and Zhang, Cun and Dong, Jiwei and Liu, Hao},
+	month = feb,
+	year = {2021},
+	keywords = {Buckling, Compression, Kirigami-inspired structures, Post-buckling morphology, Single-layer MoS sheet},
+	pages = {110188},
+	file = {ScienceDirect Snapshot:/Users/darylchrzan/Zotero/storage/ZXRJZ4JH/S0927025620306790.html:text/html},
+}
+
+
+@article{li_buckling_2021,
+	title = {The buckling behavior of single-layer {MoS2} sheets on silica substrates},
+	volume = {129},
+	issn = {0021-8979, 1089-7550},
+	url = {https://pubs.aip.org/jap/article/129/1/014302/1065331/The-buckling-behavior-of-single-layer-MoS2-sheets},
+	doi = {10.1063/5.0030528},
+	abstract = {The buckling of a single-layer molybdenum disulfide (SLMoS2) sheet can strongly influence its stability and reliability of MoS2-based nanodevices. In the study, the buckling behavior of SLMoS2 sheets on the silica substrate is investigated by theoretical modeling and molecular dynamics simulation. The difference between the suspended and substrate-supported SLMoS2 sheets is compared. The effect of substrate surface morphology, including the groove and periodic surface microstructure substrate, on the buckling behavior is mainly focused. It is found that the critical strain increases significantly compared with the suspended SLMoS2 sheets due to the introduction of the underlying substrate. The evolution of SLMoS2 sheets on substrates with grooves contains two different paths depending on the groove height and the width. Additionally, both the period and effective contact area of the surface microstructure have direct impacts on the critical strain. The finding of buckling behavior of SLMoS2 sheets on substrates should be helpful for the design of MoS2-based flexible electronic devices.},
+	number = {1},
+	urldate = {2024-09-30},
+	journal = {Journal of Applied Physics},
+	author = {Li, Yao and Chen, Peijian and Liu, Hao and Peng, Juan and Luo, Ning},
+	month = jan,
+	year = {2021},
+	pages = {014302},
+	file = {Li et al. - 2021 - The buckling behavior of single-layer MoS2 sheets .pdf:/Users/darylchrzan/Zotero/storage/RB82E6W4/Li et al. - 2021 - The buckling behavior of single-layer MoS2 sheets .pdf:application/pdf},
+}
+
+
+@article{lee_strain-induced_2023,
+	title = {Strain-induced dark exciton generation in rippled monolayer {MoS} $_{\textrm{2}}$},
+	volume = {25},
+	issn = {1463-9076, 1463-9084},
+	url = {https://xlink.rsc.org/?DOI=D2CP05879K},
+	doi = {10.1039/D2CP05879K},
+	abstract = {Near a strain of ∼6.8\%, the bright-to-dark exciton conversion occurs in rippled monolayer MoS
+              2
+              .
+            
+          , 
+            
+              Recently, it has been revealed that dark excitons play a significant role in optically controlled information processing due to their much longer radiative lifetimes than those of bright ones. For the realizable implementation of the features, it is important to understand and manipulate conditions in which dark excitons could exist. We adopt strain-engineered rippling as a new parameter for the modification of the electronic structure of monolayer MoS
+              2
+              and demonstrate the efficient conversion of bright to dark excitons
+              via
+              a first-principles study. For rippled monolayer MoS
+              2
+              above a strain of ∼6.8\%, we show that the spin order of the conduction band is reversed and the spin forbidden dark exciton then goes below the bright one.},
+	language = {en},
+	number = {14},
+	urldate = {2024-10-01},
+	journal = {Physical Chemistry Chemical Physics},
+	author = {Lee, Su Yeong and Yun, Won Seok and Lee, J. D.},
+	year = {2023},
+	pages = {9894--9900},
+	file = {Lee et al. - 2023 - Strain-induced dark exciton generation in rippled .pdf:/Users/darylchrzan/Zotero/storage/73GXKM5P/Lee et al. - 2023 - Strain-induced dark exciton generation in rippled .pdf:application/pdf},
+}
+
+
+
+@article{qi_bandgap_2013,
+	title = {Bandgap engineering of rippled {MoS2} monolayer under external electric field},
+	volume = {102},
+	issn = {0003-6951, 1077-3118},
+	url = {https://pubs.aip.org/apl/article/102/17/173112/126361/Bandgap-engineering-of-rippled-MoS2-monolayer},
+	doi = {10.1063/1.4803803},
+	abstract = {In this letter we propose a universal strategy combining external electric field with the ripple of membrane to tune the bandgap of semiconducting atomic monolayer. By first-principles calculations we show that the bandgap of rippled MoS2 monolayer can be tuned in a large range by vertical external electric field, which is expected to have little effect on MoS2 monolayer. This phenomenon can be explained from charge redistribution under external electric field by a simple model. This may open an avenue of optimizing monolayer MoS2 for electronic and optoelectronic applications by surface patterning.},
+	number = {17},
+	urldate = {2024-09-27},
+	journal = {Applied Physics Letters},
+	author = {Qi, Jingshan and Li, Xiao and Qian, Xiaofeng and Feng, Ji},
+	month = apr,
+	year = {2013},
+	pages = {173112},
+	file = {Qi et al. - 2013 - Bandgap engineering of rippled MoS2 monolayer unde.pdf:/Users/darylchrzan/Zotero/storage/T3LZR9TZ/Qi et al. - 2013 - Bandgap engineering of rippled MoS2 monolayer unde.pdf:application/pdf},
+}
+
+
+@article{shi_flexoelectricity_2018,
+	title = {Flexoelectricity in {Monolayer} {Transition} {Metal} {Dichalcogenides}},
+	volume = {9},
+	url = {https://doi.org/10.1021/acs.jpclett.8b03325},
+	doi = {10.1021/acs.jpclett.8b03325},
+	abstract = {Flexoelectricity, the coupling effect of the strain gradient and charge polarization, is an important route to tune electronic properties of low-dimensional materials. Here our extensive first-principles calculations reveal that structural wrinkling and corrugation will cause significant flexoelectricity in transition metal dichalcogenide (TMD) monolayers. The flexoelectricity is induced by the strain gradients created along the finite thickness of the wrinkled TMD monolayers and becomes more dominant in determining out-of-plane polarizations with decreasing wavelengths of the TMD wrinkles. According to the first-principles calculations and whole structural symmetry, a theoretical model is developed to describe the total out-of-plane polarizations and flexoelectric effect of the wrinkled TMD monolayers. The unveiled flexoelectricity in monolayer TMDs highlights a potential for their application in energy conversion devices.},
+	number = {23},
+	urldate = {2024-10-01},
+	journal = {The Journal of Physical Chemistry Letters},
+	author = {Shi, Wenhao and Guo, Yufeng and Zhang, Zhuhua and Guo, Wanlin},
+	month = dec,
+	year = {2018},
+	note = {Publisher: American Chemical Society},
+	pages = {6841--6846},
+	file = {Full Text PDF:/Users/darylchrzan/Zotero/storage/WA64MD3G/Shi et al. - 2018 - Flexoelectricity in Monolayer Transition Metal Dic.pdf:application/pdf},
+}
+
+
+@article{fang_electronic_2018,
+	title = {Electronic structure theory of strained two-dimensional materials with hexagonal symmetry},
+	volume = {98},
+	issn = {2469-9950, 2469-9969},
+	url = {https://link.aps.org/doi/10.1103/PhysRevB.98.075106},
+	doi = {10.1103/PhysRevB.98.075106},
+	language = {en},
+	number = {7},
+	urldate = {2024-09-27},
+	journal = {Physical Review B},
+	author = {Fang, Shiang and Carr, Stephen and Cazalilla, Miguel A. and Kaxiras, Efthimios},
+	month = aug,
+	year = {2018},
+	pages = {075106},
+	file = {Accepted Version:/Users/darylchrzan/Zotero/storage/IZ6GULZW/Fang et al. - 2018 - Electronic structure theory of strained two-dimens.pdf:application/pdf},
+}
+
+
+
+@article{stewart_atomistic_2013,
+	title = {Atomistic simulations of nanoindentation on the basal plane of crystalline molybdenum disulfide ({MoS2})},
+	volume = {21},
+	issn = {0965-0393},
+	url = {https://dx.doi.org/10.1088/0965-0393/21/4/045003},
+	doi = {10.1088/0965-0393/21/4/045003},
+	abstract = {In the present work, nanoindentation on the basal surface of a crystalline molybdenum disulfide (MoS2) thin film is investigated by molecular statics (MS) calculations. A previously parameterized interatomic potential combining the reactive empirical bond-order and Lennard-Jones potentials is implemented into the LAMMPS molecular simulation package and refined for improved prediction of the mechanical properties of MoS2 at athermal conditions. Nanoindentation simulations are performed using three indenter sizes with specific focus on the incipient plastic deformation event within the MoS2single crystal. MS calculations show that a local phase transformation occurs beneath the indenter at plastic yield without the presence of broken Mo–S bonds. The structural characteristics of the phase transformation are captured using a slip vector analysis. The nanoindentation simulations provide insight into the mechanical response of MoS2 during contact deformation characteristic of both synthesis and application for better design of MoS2 nanoparticle lubricants.},
+	number = {4},
+	urldate = {2024-09-25},
+	journal = {Modelling and Simulation in Materials Science and Engineering},
+	author = {Stewart, J. A. and Spearot, D. E.},
+	month = mar,
+	year = {2013},
+	note = {Publisher: IOP Publishing},
+	pages = {045003},
+	file = {IOP Full Text PDF:/Users/darylchrzan/Zotero/storage/PXJHT8LY/Stewart and Spearot - 2013 - Atomistic simulations of nanoindentation on the ba.pdf:application/pdf},
+}
+
+@article{liang_parametrization_2009,
+	title = {Parametrization of a reactive many-body potential for {Mo}--{S} systems},
+	volume = {79},
+	url = {https://link.aps.org/doi/10.1103/PhysRevB.79.245110},
+	doi = {10.1103/PhysRevB.79.245110},
+	abstract = {We present an interatomic potential for the Mo-S system based on the second-generation reactive empirical bond-order formalism. An analytic function is introduced to the bond-order term to capture the effect of the coordination number on the binding energy. The fitting scheme used for this potential is optimized by appropriate selection of the functions, training databases, initial guesses, and weights on each residual—the four factors that are involved in a weighted nonlinear least-squares fitting. The resulting potential is able to yield good agreement with the structure and energetics of Mo molecules, two-dimensional Mo structures, three-dimensional Mo crystals, small S molecules, and binary Mo-S crystal structures. We illustrate the capabilities of the new potential by presenting results of the simulation of friction between MoS2 layers. The results are consistent with our previous static potential surface calculations using density-functional theory.},
+	number = {24},
+	urldate = {2024-09-25},
+	journal = {Physical Review B},
+	author = {Liang, Tao and Phillpot, Simon R. and Sinnott, Susan B.},
+	month = jun,
+	year = {2009},
+	note = {Publisher: American Physical Society},
+	pages = {245110},
+	file = {APS Snapshot:/Users/darylchrzan/Zotero/storage/BIKXJIFE/PhysRevB.79.html:text/html;Full Text PDF:/Users/darylchrzan/Zotero/storage/LWZTJ5HN/Liang et al. - 2009 - Parametrization of a reactive many-body potential .pdf:application/pdf},
+}
+
+
+
+@article{gish2024van,
+  title={Van der Waals opto-spintronics},
+  author={Gish, J Tyler and Lebedev, Dmitry and Song, Thomas W and Sangwan, Vinod K and Hersam, Mark C},
+  journal={Nature Electronics},
+  pages={1--12},
+  year={2024},
+  publisher={Nature Publishing Group UK London}
+}
+@article{perdew_generalized_1996,
+	title = {Generalized {Gradient} {Approximation} {Made} {Simple}},
+	volume = {77},
+	url = {https://link.aps.org/doi/10.1103/PhysRevLett.77.3865},
+	doi = {10.1103/PhysRevLett.77.3865},
+	abstract = {Generalized gradient approximations (GGA's) for the exchange-correlation energy improve upon the local spin density (LSD) description of atoms, molecules, and solids. We present a simple derivation of a simple GGA, in which all parameters (other than those in LSD) are fundamental constants. Only general features of the detailed construction underlying the Perdew-Wang 1991 (PW91) GGA are invoked. Improvements over PW91 include an accurate description of the linear response of the uniform electron gas, correct behavior under uniform scaling, and a smoother potential.},
+	number = {18},
+	urldate = {2024-09-20},
+	journal = {Physical Review Letters},
+	author = {Perdew, John P. and Burke, Kieron and Ernzerhof, Matthias},
+	month = oct,
+	year = {1996},
+	note = {Publisher: American Physical Society},
+	pages = {3865--3868},
+	file = {APS Snapshot:/Users/darylchrzan/Zotero/storage/G6NPHGXC/PhysRevLett.77.html:text/html},
+}
+
+@article{wang_heavy_2017,
+	title = {Heavy fermion behavior in the quasi-one-dimensional {Kondo} lattice {CeCo2Ga8}},
+	volume = {2},
+	copyright = {2017 The Author(s)},
+	issn = {2397-4648},
+	url = {https://www.nature.com/articles/s41535-017-0040-9},
+	doi = {10.1038/s41535-017-0040-9},
+	abstract = {Dimensionality plays an essential role in determining the anomalous non-Fermi liquid properties in heavy fermion systems. So far most heavy fermion compounds are quasi-two-dimensional or three-dimensional. Here we report the synthesis and systematic investigations of the single crystals of the quasi-one-dimensional Kondo lattice CeCo2Ga8. Resistivity measurements at ambient pressure reveal the onset of coherence at T * ≈ 20 K and non-Fermi liquid behavior with linear temperature dependence over a decade in temperature from 2 to 0.1 K. The specific heat increases logarithmically with lowering temperature between 10 and 2 K and reaches 800 mJ/mol K2 at 1 K, suggesting that CeCo2Ga8 is a heavy fermion compound in the close vicinity of a quantum critical point. Resistivity measurements under pressure further confirm the non-Fermi liquid behavior in a large temperature–pressure range. The magnetic susceptibility is found to follow the typical behavior for a one-dimensional spin chain from 300 K down to T *, and first-principles calculations predict flat Fermi surfaces for the itinerant f-electron bands. These suggest that CeCo2Ga8 is a rare example of the quasi-one-dimensional Kondo lattice, but its non-Fermi liquid behaviors resemble those of the quasi-two-dimensional YbRh2Si2 family. The study of the quasi-one-dimensional CeCo2Ga8 family may therefore help us to understand the role of dimensionality on heavy fermion physics and quantum criticality.},
+	number = {1},
+	urldate = {2024-09-20},
+	journal = {npj Quantum Materials},
+	author = {Wang, Le and Fu, Zhaoming and Sun, Jianping and Liu, Min and Yi, Wei and Yi, Changjiang and Luo, Yongkang and Dai, Yaomin and Liu, Guangtong and Matsushita, Yoshitaka and Yamaura, Kazunari and Lu, Li and Cheng, Jin-Guang and Yang, Yi-feng and Shi, Youguo and Luo, Jianlin},
+	month = jul,
+	year = {2017},
+	note = {Publisher: Nature Publishing Group},
+	keywords = {Condensed-matter physics},
+	pages = {1--6},
+	file = {Full Text PDF:/Users/darylchrzan/Zotero/storage/876CTL2U/Wang et al. - 2017 - Heavy fermion behavior in the quasi-one-dimensiona.pdf:application/pdf},
+}
+
+#############################################
+# TBG paper
+
+@article{bistritzer2011moire,
+  title={Moir{\'e} bands in twisted double-layer graphene},
+  author={Bistritzer, Rafi and MacDonald, Allan H},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={108},
+  number={30},
+  pages={12233--12237},
+  year={2011},
+  publisher={National Acad Sciences}
+}
+
+#############################################
+# Superconductivity in TBG  
+@article{po2018origin,
+  title={Origin of Mott insulating behavior and superconductivity in twisted bilayer graphene},
+  author={Po, Hoi Chun and Zou, Liujun and Vishwanath, Ashvin and Senthil, T},
+  journal={Physical Review X},
+  volume={8},
+  number={3},
+  pages={031089},
+  year={2018},
+  publisher={APS}
+}
+
+@article{cao2018unconventional,
+  title={Unconventional superconductivity in magic-angle graphene superlattices},
+  author={Cao, Yuan and Fatemi, Valla and Fang, Shiang and Watanabe, Kenji and Taniguchi, Takashi and Kaxiras, Efthimios and Jarillo-Herrero, Pablo},
+  journal={Nature},
+  volume={556},
+  number={7699},
+  pages={43--50},
+  year={2018},
+  publisher={Nature Publishing Group}
+}
+
+@article{isobe2018unconventional,
+  title={Unconventional superconductivity and density waves in twisted bilayer graphene},
+  author={Isobe, Hiroki and Yuan, Noah FQ and Fu, Liang},
+  journal={Physical Review X},
+  volume={8},
+  number={4},
+  pages={041041},
+  year={2018},
+  publisher={APS}
+}
+
+@article{wu2018theory,
+  title={Theory of phonon-mediated superconductivity in twisted bilayer graphene},
+  author={Wu, Fengcheng and MacDonald, Allan H and Martin, Ivar},
+  journal={Physical review letters},
+  volume={121},
+  number={25},
+  pages={257001},
+  year={2018},
+  publisher={APS}
+}
+
+@article{lian2019twisted,
+  title={Twisted bilayer graphene: a phonon-driven superconductor},
+  author={Lian, Biao and Wang, Zhijun and Bernevig, B Andrei},
+  journal={Physical review letters},
+  volume={122},
+  number={25},
+  pages={257002},
+  year={2019},
+  publisher={APS}
+}
+
+@article{chou2019superconductor,
+  title={Superconductor versus insulator in twisted bilayer graphene},
+  author={Chou, Yang-Zhi and Lin, Yu-Ping and Das Sarma, Sankar and Nandkishore, Rahul M},
+  journal={Physical Review B},
+  volume={100},
+  number={11},
+  pages={115128},
+  year={2019},
+  publisher={APS}
+}
+
+@article{codecido2019correlated,
+  title={Correlated insulating and superconducting states in twisted bilayer graphene below the magic angle},
+  author={Codecido, Emilio and Wang, Qiyue and Koester, Ryan and Che, Shi and Tian, Haidong and Lv, Rui and Tran, Son and Watanabe, Kenji and Taniguchi, Takashi and Zhang, Fan and others},
+  journal={Science Advances},
+  volume={5},
+  number={9},
+  pages={eaaw9770},
+  year={2019},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{yankowitz2019tuning,
+  title={Tuning superconductivity in twisted bilayer graphene},
+  author={Yankowitz, Matthew and Chen, Shaowen and Polshyn, Hryhoriy and Zhang, Yuxuan and Watanabe, K and Taniguchi, T and Graf, David and Young, Andrea F and Dean, Cory R},
+  journal={Science},
+  volume={363},
+  number={6431},
+  pages={1059--1064},
+  year={2019},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{saito2020independent,
+  title={Independent superconductors and correlated insulators in twisted bilayer graphene},
+  author={Saito, Yu and Ge, Jingyuan and Watanabe, Kenji and Taniguchi, Takashi and Young, Andrea F},
+  journal={Nature Physics},
+  volume={16},
+  number={9},
+  pages={926--930},
+  year={2020},
+  publisher={Nature Publishing Group UK London}
+}
+
+
+@article{shavit2021theory,
+  title={Theory of correlated insulators and superconductivity in twisted bilayer graphene},
+  author={Shavit, Gal and Berg, Erez and Stern, Ady and Oreg, Yuval},
+  journal={Physical review letters},
+  volume={127},
+  number={24},
+  pages={247703},
+  year={2021},
+  publisher={APS}
+}
+
+@article{oh2021evidence,
+  title={Evidence for unconventional superconductivity in twisted bilayer graphene},
+  author={Oh, Myungchul and Nuckolls, Kevin P and Wong, Dillon and Lee, Ryan L and Liu, Xiaomeng and Watanabe, Kenji and Taniguchi, Takashi and Yazdani, Ali},
+  journal={Nature},
+  volume={600},
+  number={7888},
+  pages={240--245},
+  year={2021},
+  publisher={Nature Publishing Group UK London}
+}
+
+# -> SUPERCONDUCTVITIY IN MOIRE FLATBANDS
+@article{balents2020superconductivity,
+  title={Superconductivity and strong correlations in moir{\'e} flat bands},
+  author={Balents, Leon and Dean, Cory R and Efetov, Dmitri K and Young, Andrea F},
+  journal={Nature Physics},
+  volume={16},
+  number={7},
+  pages={725--733},
+  year={2020},
+  publisher={Nature Publishing Group UK London}
+}
+
+#############################################
+# Magnetism in TBG 
+
+@article{gonzalez2017electrically,
+  title={Electrically controllable magnetism in twisted bilayer graphene},
+  author={Gonzalez-Arraga, Luis A and Lado, JL and Guinea, Francisco and San-Jose, Pablo},
+  journal={Physical review letters},
+  volume={119},
+  number={10},
+  pages={107201},
+  year={2017},
+  publisher={APS}
+}
+
+@article{sboychakov2018externally,
+  title={Externally controlled magnetism and band gap in twisted bilayer graphene},
+  author={Sboychakov, AO and Rozhkov, AV and Rakhmanov, AL and Nori, Franco},
+  journal={Physical review letters},
+  volume={120},
+  number={26},
+  pages={266402},
+  year={2018},
+  publisher={APS}
+}
+
+
+@article{sharpe2019emergent,
+  title={Emergent ferromagnetism near three-quarters filling in twisted bilayer graphene},
+  author={Sharpe, Aaron L and Fox, Eli J and Barnard, Arthur W and Finney, Joe and Watanabe, Kenji and Taniguchi, Takashi and Kastner, MA and Goldhaber-Gordon, David},
+  journal={Science},
+  volume={365},
+  number={6453},
+  pages={605--608},
+  year={2019},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{wolf2019electrically,
+  title={Electrically tunable flat bands and magnetism in twisted bilayer graphene},
+  author={Wolf, Tobias MR and Lado, Jose L and Blatter, Gianni and Zilberberg, Oded},
+  journal={Physical review letters},
+  volume={123},
+  number={9},
+  pages={096802},
+  year={2019},
+  publisher={APS}
+}
+
+
+@article{li2020experimental,
+  title={Experimental evidence for orbital magnetic moments generated by moir{\'e}-scale current loops in twisted bilayer graphene},
+  author={Li, Si-Yu and Zhang, Yu and Ren, Ya-Ning and Liu, Jianpeng and Dai, Xi and He, Lin},
+  journal={Physical Review B},
+  volume={102},
+  number={12},
+  pages={121406},
+  year={2020},
+  publisher={APS}
+}
+
+@article{pons2020flat,
+  title={Flat-band ferromagnetism in twisted bilayer graphene},
+  author={Pons, R and Mielke, A and Stauber, T},
+  journal={Physical Review B},
+  volume={102},
+  number={23},
+  pages={235101},
+  year={2020},
+  publisher={APS}
+}
+
+@article{klebl2021importance,
+  title={Importance of long-ranged electron-electron interactions for the magnetic phase diagram of twisted bilayer graphene},
+  author={Klebl, Lennart and Goodwin, Zachary AH and Mostofi, Arash A and Kennes, Dante M and Lischner, Johannes},
+  journal={Physical Review B},
+  volume={103},
+  number={19},
+  pages={195127},
+  year={2021},
+  publisher={APS}
+}
+
+@article{vahedi2021magnetism,
+  title={Magnetism of magic-angle twisted bilayer graphene},
+  author={Vahedi, Javad and Peters, Robert and Missaoui, Ahmed and Honecker, Andreas and Trambly de Laissardi{\`e}re, Guy},
+  journal={SciPost Physics},
+  volume={11},
+  number={4},
+  pages={083},
+  year={2021}
+}
+
+
+#############################################
+# Linear-in-temperature resitivity in TBG  
+@article{polshyn2019large,
+  title={Large linear-in-temperature resistivity in twisted bilayer graphene},
+  author={Polshyn, Hryhoriy and Yankowitz, Matthew and Chen, Shaowen and Zhang, Yuxuan and Watanabe, K and Taniguchi, T and Dean, Cory R and Young, Andrea F},
+  journal={Nature Physics},
+  volume={15},
+  number={10},
+  pages={1011--1016},
+  year={2019},
+  publisher={Nature Publishing Group UK London}
+}
+
+@article{wu2019phonon,
+  title={Phonon-induced giant linear-in-T resistivity in magic angle twisted bilayer graphene: Ordinary strangeness and exotic superconductivity},
+  author={Wu, Fengcheng and Hwang, Euyheon and Das Sarma, Sankar},
+  journal={Physical Review B},
+  volume={99},
+  number={16},
+  pages={165112},
+  year={2019},
+  publisher={APS}
+}
+
+@article{cao2020strange,
+  title={Strange metal in magic-angle graphene with near Planckian dissipation},
+  author={Cao, Yuan and Chowdhury, Debanjan and Rodan-Legrain, Daniel and Rubies-Bigorda, Oriol and Watanabe, Kenji and Taniguchi, Takashi and Senthil, T and Jarillo-Herrero, Pablo},
+  journal={Physical review letters},
+  volume={124},
+  number={7},
+  pages={076801},
+  year={2020},
+  publisher={APS}
+}
+
+#############################################
+# Intrinsic QHAE in TBG 
+
+@article{serlin2020intrinsic,
+  title={Intrinsic quantized anomalous Hall effect in a moir{\'e} heterostructure},
+  author={Serlin, M and Tschirhart, CL and Polshyn, H and Zhang, Y and Zhu, J and Watanabe, K and Taniguchi, T and Balents, L and Young, AF},
+  journal={Science},
+  volume={367},
+  number={6480},
+  pages={900--903},
+  year={2020},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{bultinck2020mechanism,
+  title={Mechanism for anomalous hall ferromagnetism in twisted bilayer graphene},
+  author={Bultinck, Nick and Chatterjee, Shubhayu and Zaletel, Michael P},
+  journal={Physical review letters},
+  volume={124},
+  number={16},
+  pages={166601},
+  year={2020},
+  publisher={APS}
+}
+
+
+@article{liu2021theories,
+  title={Theories for the correlated insulating states and quantum anomalous Hall effect phenomena in twisted bilayer graphene},
+  author={Liu, Jianpeng and Dai, Xi},
+  journal={Physical Review B},
+  volume={103},
+  number={3},
+  pages={035427},
+  year={2021},
+  publisher={APS}
+}
+
+#############################################
+# Insulating phases in TBG 
+
+@article{cao2018correlated,
+  title={Correlated insulator behaviour at half-filling in magic-angle graphene superlattices},
+  author={Cao, Yuan and Fatemi, Valla and Demir, Ahmet and Fang, Shiang and Tomarken, Spencer L and Luo, Jason Y and Sanchez-Yamagishi, Javier D and Watanabe, Kenji and Taniguchi, Takashi and Kaxiras, Efthimios and others},
+  journal={Nature},
+  volume={556},
+  number={7699},
+  pages={80--84},
+  year={2018},
+  publisher={Nature Publishing Group UK London}
+}
+
+@article{po2018origin,
+  title={Origin of Mott insulating behavior and superconductivity in twisted bilayer graphene},
+  author={Po, Hoi Chun and Zou, Liujun and Vishwanath, Ashvin and Senthil, T},
+  journal={Physical Review X},
+  volume={8},
+  number={3},
+  pages={031089},
+  year={2018},
+  publisher={APS}
+}
+
+@article{yuan2018model,
+  title={Model for the metal-insulator transition in graphene superlattices and beyond},
+  author={Yuan, Noah FQ and Fu, Liang},
+  journal={Physical Review B},
+  volume={98},
+  number={4},
+  pages={045103},
+  year={2018},
+  publisher={APS}
+}
+
+@article{padhi2018doped,
+  title={Doped twisted bilayer graphene near magic angles: proximity to Wigner crystallization, not Mott insulation},
+  author={Padhi, Bikash and Setty, Chandan and Phillips, Philip W},
+  journal={Nano letters},
+  volume={18},
+  number={10},
+  pages={6175--6180},
+  year={2018},
+  publisher={ACS Publications}
+}
+
+@article{ochi2018possible,
+  title={Possible correlated insulating states in magic-angle twisted bilayer graphene under strongly competing interactions},
+  author={Ochi, Masayuki and Koshino, Mikito and Kuroki, Kazuhiko},
+  journal={Physical Review B},
+  volume={98},
+  number={8},
+  pages={081102},
+  year={2018},
+  publisher={APS}
+}
+
+@article{zhang2020correlated,
+  title={Correlated insulating phases of twisted bilayer graphene at commensurate filling fractions: A Hartree-Fock study},
+  author={Zhang, Yi and Jiang, Kun and Wang, Ziqiang and Zhang, Fuchun},
+  journal={Physical Review B},
+  volume={102},
+  number={3},
+  pages={035136},
+  year={2020},
+  publisher={APS}
+}
+
+@article{nuckolls2020strongly,
+  title={Strongly correlated Chern insulators in magic-angle twisted bilayer graphene},
+  author={Nuckolls, Kevin P and Oh, Myungchul and Wong, Dillon and Lian, Biao and Watanabe, Kenji and Taniguchi, Takashi and Bernevig, B Andrei and Yazdani, Ali},
+  journal={Nature},
+  volume={588},
+  number={7839},
+  pages={610--615},
+  year={2020},
+  publisher={Nature Publishing Group UK London}
+}
+
+@article{da2021correlation,
+  title={Correlation-induced insulating topological phases at charge neutrality in twisted bilayer graphene},
+  author={Da Liao, Yuan and Kang, Jian and Brei{\o}, Clara N and Xu, Xiao Yan and Wu, Han-Qing and Andersen, Brian M and Fernandes, Rafael M and Meng, Zi Yang},
+  journal={Physical Review X},
+  volume={11},
+  number={1},
+  pages={011014},
+  year={2021},
+  publisher={APS}
+}
+
+@article{liu2021tuning,
+  title={Tuning electron correlation in magic-angle twisted bilayer graphene using Coulomb screening},
+  author={Liu, Xiaoxue and Wang, Zhi and Watanabe, Kenji and Taniguchi, Takashi and Vafek, Oskar and Li, JIA},
+  journal={Science},
+  volume={371},
+  number={6535},
+  pages={1261--1265},
+  year={2021},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{pierce2021unconventional,
+  title={Unconventional sequence of correlated Chern insulators in magic-angle twisted bilayer graphene},
+  author={Pierce, Andrew T and Xie, Yonglong and Park, Jeong Min and Khalaf, Eslam and Lee, Seung Hwan and Cao, Yuan and Parker, Daniel E and Forrester, Patrick R and Chen, Shaowen and Watanabe, Kenji and others},
+  journal={Nature Physics},
+  volume={17},
+  number={11},
+  pages={1210--1215},
+  year={2021},
+  publisher={Nature Publishing Group UK London}
+}
+
+@article{da2021correlation,
+  title={Correlation-induced insulating topological phases at charge neutrality in twisted bilayer graphene},
+  author={Da Liao, Yuan and Kang, Jian and Brei{\o}, Clara N and Xu, Xiao Yan and Wu, Han-Qing and Andersen, Brian M and Fernandes, Rafael M and Meng, Zi Yang},
+  journal={Physical Review X},
+  volume={11},
+  number={1},
+  pages={011014},
+  year={2021},
+  publisher={APS}
+}
+
+#############################################
+# Direct visualization of flat bands in TBGs 
+
+@article{utama2021visualization,
+  title={Visualization of the flat electronic band in twisted bilayer graphene near the magic angle twist},
+  author={Utama, M Iqbal Bakti and Koch, Roland J and Lee, Kyunghoon and Leconte, Nicolas and Li, Hongyuan and Zhao, Sihan and Jiang, Lili and Zhu, Jiayi and Watanabe, Kenji and Taniguchi, Takashi and others},
+  journal={Nature Physics},
+  volume={17},
+  number={2},
+  pages={184--188},
+  year={2021},
+  publisher={Nature Publishing Group UK London}
+}
+
+#############################################
+# Twistronics
+
+@article{ciarrocchi2022excitonic,
+  title={Excitonic devices with van der Waals heterostructures: valleytronics meets twistronics},
+  author={Ciarrocchi, Alberto and Tagarelli, Fedele and Avsar, Ahmet and Kis, Andras},
+  journal={Nature Reviews Materials},
+  volume={7},
+  number={6},
+  pages={449--464},
+  year={2022},
+  publisher={Nature Publishing Group UK London}
+}
+
+#############################################
+# Flatbands in gamma-graphyne
+@article{an2021emergence,
+  title={Emergence and tuning of multiple flat bands in twisted bilayer $\gamma$-graphyne},
+  author={An, Jiao and Kang, Jun},
+  journal={The Journal of Physical Chemistry Letters},
+  volume={12},
+  number={51},
+  pages={12283--12291},
+  year={2021},
+  publisher={ACS Publications}
+}
+
+# Flatbands in hBN
+@article{zhao2020formation,
+  title={Formation of bloch flat bands in polar twisted bilayers without magic angles},
+  author={Zhao, Xing-Ju and Yang, Yang and Zhang, Dong-Bo and Wei, Su-Huai},
+  journal={Physical review letters},
+  volume={124},
+  number={8},
+  pages={086401},
+  year={2020},
+  publisher={APS}
+}
+
+# Flatbands in TMDs
+@article{rademaker2022spin,
+  title={Spin-orbit coupling in transition metal dichalcogenide heterobilayer flat bands},
+  author={Rademaker, Louk},
+  journal={Physical Review B},
+  volume={105},
+  number={19},
+  pages={195428},
+  year={2022},
+  publisher={APS}
+}
+
+@article{naik2018ultraflatbands,
+  title={Ultraflatbands and shear solitons in moir{\'e} patterns of twisted bilayer transition metal dichalcogenides},
+  author={Naik, Mit H and Jain, Manish},
+  journal={Physical review letters},
+  volume={121},
+  number={26},
+  pages={266401},
+  year={2018},
+  publisher={APS}
+}
+@article{wu2018hubbard,
+  title={Hubbard model physics in transition metal dichalcogenide moir{\'e} bands},
+  author={Wu, Fengcheng and Lovorn, Timothy and Tutuc, Emanuel and MacDonald, Allan H},
+  journal={Physical review letters},
+  volume={121},
+  number={2},
+  pages={026402},
+  year={2018},
+  publisher={APS}
+}
+
+@article{wu2019topological,
+  title={Topological insulators in twisted transition metal dichalcogenide homobilayers},
+  author={Wu, Fengcheng and Lovorn, Timothy and Tutuc, Emanuel and Martin, Ivar and MacDonald, AH},
+  journal={Physical review letters},
+  volume={122},
+  number={8},
+  pages={086402},
+  year={2019},
+  publisher={APS}
+}
+
+@article{ruiz2019interlayer,
+  title={Interlayer hybridization and moir{\'e} superlattice minibands for electrons and excitons in heterobilayers of transition-metal dichalcogenides},
+  author={Ruiz-Tijerina, David A and Fal'ko, Vladimir I},
+  journal={Physical Review B},
+  volume={99},
+  number={12},
+  pages={125424},
+  year={2019},
+  publisher={APS}
+}
+
+@article{zhan2020tunability,
+  title={Tunability of multiple ultraflat bands and effect of spin-orbit coupling in twisted bilayer transition metal dichalcogenides},
+  author={Zhan, Zhen and Zhang, Yipei and Lv, Pengfei and Zhong, Hongxia and Yu, Guodong and Guinea, Francisco and Silva-Guill{\'e}n, Jos{\'e} {\'A}ngel and Yuan, Shengjun},
+  journal={Physical Review B},
+  volume={102},
+  number={24},
+  pages={241106},
+  year={2020},
+  publisher={APS}
+}
+
+@article{xu2021moire,
+  title={Moir{\'e} flat bands in twisted 2D hexagonal vdW materials},
+  author={Xu, Qiaoling and Guo, Yuzheng and Xian, Lede},
+  journal={2D Materials},
+  volume={9},
+  number={1},
+  pages={014005},
+  year={2021},
+  publisher={IOP Publishing}
+}
+
+@article{pasquale2023electrical,
+  title={Electrical detection of the flat-band dispersion in van der Waals field-effect structures},
+  author={Pasquale, Gabriele and Lopriore, Edoardo and Sun, Zhe and {\v{C}}er{\c{n}}evi{\v{c}}s, Kristi{\=a}ns and Tagarelli, Fedele and Watanabe, Kenji and Taniguchi, Takashi and Yazyev, Oleg V and Kis, Andras},
+  journal={Nature Nanotechnology},
+  volume={18},
+  number={12},
+  pages={1416--1422},
+  year={2023},
+  publisher={Nature Publishing Group UK London}
+}
+
+# Flatbands in MoS2
+@article{kuang2022flat,
+  title={Flat-band plasmons in twisted bilayer transition metal dichalcogenides},
+  author={Kuang, Xueheng and Zhan, Zhen and Yuan, Shengjun},
+  journal={Physical Review B},
+  volume={105},
+  number={24},
+  pages={245415},
+  year={2022},
+  publisher={APS}
+}
+
+@article{kundu2021atomic,
+  title={Atomic reconstruction and flat bands in strain engineered transition metal dichalcogenide bilayer moir$\backslash$'$\{$e$\}$ systems},
+  author={Kundu, Sudipta and Maity, Indrajit and Bajaj, Robin and Krishnamurthy, HR and Jain, Manish},
+  journal={arXiv preprint arXiv:2108.01112},
+  year={2021}
+}
+
+# Flatbands in WS2
+@article{wang2020correlated,
+  title={Correlated electronic phases in twisted bilayer transition metal dichalcogenides},
+  author={Wang, Lei and Shih, En-Min and Ghiotto, Augusto and Xian, Lede and Rhodes, Daniel A and Tan, Cheng and Claassen, Martin and Kennes, Dante M and Bai, Yusong and Kim, Bumho and others},
+  journal={Nature materials},
+  volume={19},
+  number={8},
+  pages={861--866},
+  year={2020},
+  publisher={Nature Publishing Group UK London}
+}
+
+@article{li2021imaging,
+  title={Imaging moir{\'e} flat bands in three-dimensional reconstructed WSe2/WS2 superlattices},
+  author={Li, Hongyuan and Li, Shaowei and Naik, Mit H and Xie, Jingxu and Li, Xinyu and Wang, Jiayin and Regan, Emma and Wang, Danqing and Zhao, Wenyu and Zhao, Sihan and others},
+  journal={Nature materials},
+  volume={20},
+  number={7},
+  pages={945--950},
+  year={2021},
+  publisher={Nature Publishing Group UK London}
+}
+
+# Strain in vdW 2D materials
+@article{dai2019strain,
+  title={Strain engineering of 2D materials: issues and opportunities at the interface},
+  author={Dai, Zhaohe and Liu, Luqi and Zhang, Zhong},
+  journal={Advanced Materials},
+  volume={31},
+  number={45},
+  pages={1805417},
+  year={2019},
+  publisher={Wiley Online Library}
+}
+
+@article{qi2023recent,
+  title={Recent progress in strain engineering on van der Waals 2D materials: Tunable electrical, electrochemical, magnetic, and optical properties},
+  author={Qi, Yaping and Sadi, Mohammad A and Hu, Dan and Zheng, Ming and Wu, Zhenping and Jiang, Yucheng and Chen, Yong P},
+  journal={Advanced Materials},
+  volume={35},
+  number={12},
+  pages={2205714},
+  year={2023},
+  publisher={Wiley Online Library}
+}
+
+
+
+
+
+
+
+
+
+
+##############
+
+
+# LAMMPS
+@article{brenner1990empirical,
+  title={Empirical potential for hydrocarbons for use in simulating the chemical vapor deposition of diamond films},
+  author={Brenner, Donald W},
+  journal={Physical review B},
+  volume={42},
+  number={15},
+  pages={9458},
+  year={1990},
+  publisher={APS}
+}
+
+@article{brenner2002second,
+  title={A second-generation reactive empirical bond order (REBO) potential energy expression for hydrocarbons},
+  author={Brenner, Donald W and Shenderova, Olga A and Harrison, Judith A and Stuart, Steven J and Ni, Boris and Sinnott, Susan B},
+  journal={Journal of Physics: Condensed Matter},
+  volume={14},
+  number={4},
+  pages={783},
+  year={2002},
+  publisher={IOP Publishing}
+}
+
+@article{thompson2022lammps,
+  title={LAMMPS-a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales},
+  author={Thompson, Aidan P and Aktulga, H Metin and Berger, Richard and Bolintineanu, Dan S and Brown, W Michael and Crozier, Paul S and in't Veld, Pieter J and Kohlmeyer, Axel and Moore, Stan G and Nguyen, Trung Dac and others},
+  journal={Computer Physics Communications},
+  volume={271},
+  pages={108171},
+  year={2022},
+  publisher={Elsevier}
+}
+
+# SIESTA
+@article{soler2002siesta,
+  title={The SIESTA method for ab initio order-N materials simulation},
+  author={Soler, Jos{\'e} M and Artacho, Emilio and Gale, Julian D and Garc{\'\i}a, Alberto and Junquera, Javier and Ordej{\'o}n, Pablo and S{\'a}nchez-Portal, Daniel},
+  journal={Journal of Physics: Condensed Matter},
+  volume={14},
+  number={11},
+  pages={2745},
+  year={2002},
+  publisher={IOP Publishing}
+}
+
+# DFT
+@article{kohn1965self,
+  title={Self-consistent equations including exchange and correlation effects},
+  author={Kohn, Walter and Sham, Lu Jeu},
+  journal={Physical review},
+  volume={140},
+  number={4A},
+  pages={A1133},
+  year={1965},
+  publisher={APS}
+}
+
+@article{wentzcovitch1992energy,
+  title={Energy versus free-energy conservation in first-principles molecular dynamics},
+  author={Wentzcovitch, Renata M and Martins, Jos{\'e} Lu{\'\i}s and Allen, Philip B},
+  journal={Physical Review B},
+  volume={45},
+  number={19},
+  pages={11372},
+  year={1992},
+  publisher={APS}
+}
+
+@article{kresse1996efficiency,
+  title={Efficiency of ab-initio total energy calculations for metals and semiconductors using a plane-wave basis set},
+  author={Kresse, Georg and Furthm{\"u}ller, J{\"u}rgen},
+  journal={Computational materials science},
+  volume={6},
+  number={1},
+  pages={15--50},
+  year={1996},
+  publisher={Elsevier}
+}
+
+@misc{suppmat,
+  note = {See Supplemental Material at [URL will be inserted by publisher] for additional band structures and electronic structure calculations of WS2, MoSe2, and WSe2, including detailed effective mass calculations, probability density distributions for states at the valence band maximum and conduction band minimum, and comparative band structure evolution under compression for all studied TMDs. The Supplemental Material also contains Refs. \cite{liang_parametrization_2009,stewart_atomistic_2013}}
+}
