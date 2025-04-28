@@ -1,0 +1,158 @@
+
+\documentclass[
+preprint,
+superscriptaddress
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%preprintnumbers,
+%nofootinbib,
+%nobibnotes, 
+%bibnotes,
+ amsmath,amssymb,
+%aps,
+%pra,
+prm,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+%...
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{xcolor}
+\usepackage[superscript,numbers]{natbib}
+
+\begin{document}
+
+%\preprint{APS/123-QED}
+
+\title{Strain-Induced Lateral Heterostructures: Hole Localization and the Emergence of Flat Bands in Rippled MoS$_2$ Monolayers}
+
+\author{Meshal Alawein}
+\affiliation{Electrical Engineering and Computer Science, University of California, Berkeley, CA 94720, USA}
+\affiliation{Materials Sciences Division, Lawrence Berkeley National Laboratories, Berkeley, CA 94720, USA}
+
+\author{Joel W. Ager}
+\affiliation{Materials Sciences Division, Lawrence Berkeley National Laboratories, Berkeley, CA 94720, USA}
+\affiliation{Materials Science and Engineering, University of California, Berkeley, CA 94720, USA}
+
+
+\author{Ali Javey}
+\affiliation{Electrical Engineering and Computer Science, University of California, Berkeley, CA 94720, USA}
+\affiliation{Materials Sciences Division, Lawrence Berkeley National Laboratories, Berkeley, CA 94720, USA}
+
+\author{D. C. Chrzan}
+\email[Corresponding author:] {dcchrzan@berkeley.edu}
+\affiliation{Materials Sciences Division, Lawrence Berkeley National Laboratories, Berkeley, CA 94720, USA}
+\affiliation{Materials Science and Engineering, University of California, Berkeley, CA 94720, USA}
+
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\begin{abstract}
+
+
+The formation of 2D lateral heterostructures in rippled MoS\textsubscript{2} and similar transition metal dichalcogenides (TMDs) is studied using density functional theory. Compression of rippled TMDs beyond a threshold compression leads to the formation of a flat valence band associated with strongly localized holes.  The implications for exciton manipulation and the emergence of one-dimensional heavy fermion behavior are discussed.
+
+
+\end{abstract}
+
+\maketitle
+
+%\tableofcontents
+
+The study of the electronic properties of van der Waals (vdW) 2D materials remains a fruitful area for uncovering new material behaviors \cite{gish2024van}. A prime example is the discovery of superconductivity in moir\'e-patterned bilayer graphene, driven by the formation of flat bands near the Fermi level at a specific ``magic'' twist angle ($\sim1.1^\circ$) \cite{bistritzer2011moire}. These flat bands arise from the unique stacking and specific rotational alignment between the two layers, which creates a moir\'e superlattice---a long-wavelength periodic pattern that profoundly modifies the electronic band structure. The overlapping periodic potentials from the slightly misaligned graphene layers cause the electronic states to localize, effectively flattening the bands, resulting in a high density of states and reduced kinetic energy of electrons. The slowed electron motion in these flat bands enhances carrier correlations providing a fertile ground for exploring exotic quantum phenomena such as superconductivity \cite{po2018origin, cao2018unconventional, isobe2018unconventional, wu2018theory, lian2019twisted, chou2019superconductor, codecido2019correlated, yankowitz2019tuning, saito2020independent, shavit2021theory, oh2021evidence}, magnetism \cite{gonzalez2017electrically, sboychakov2018externally, sharpe2019emergent, wolf2019electrically, li2020experimental, pons2020flat, klebl2021importance, vahedi2021magnetism}, linear-in-temperature resistivity \cite{polshyn2019large, wu2019phonon, cao2020strange}, intrinsic quantized anomalous Hall effect \cite{serlin2020intrinsic, bultinck2020mechanism, liu2021theories}, and correlated insulating phases \cite{cao2018correlated, po2018origin, yuan2018model, padhi2018doped, ochi2018possible, zhang2020correlated, nuckolls2020strongly, da2021correlation, liu2021tuning, pierce2021unconventional}. The direct visualization of these flat bands \cite{utama2021visualization} has confirmed their critical role in driving the rich phase diagram observed in twisted bilayer graphene, making it a cornerstone in the emerging field of ``twistronics'' \cite{ciarrocchi2022excitonic}.
+
+Beyond bilayer graphene,  moir\'e flat bands have also been observed in other vdW 2D materials, notably in $\gamma$-graphyne \cite{an2021emergence}, h-BN \cite{zhao2020formation}, and transition metal dichalcogenides (TMDs) \cite{naik2018ultraflatbands, wu2018hubbard, wu2019topological, ruiz2019interlayer, zhan2020tunability}. Nevertheless, the magic angle phenomenon seems to be unique to twisted bilayer semimetals. Materials such as hBN, MoS\textsubscript{2}, and $\gamma$-graphyne do not exhibit a critical angle-dependent transition. Instead, flat bands in these materials emerge at under more relaxed conditions. In particular, flat bands result at sufficiently small twist angles, where the electronic bandwidth becomes comparable to or smaller than the Coulomb interaction energy, leading to similarly rich physics as in twisted bilayer graphene. For example, twisted bilayer WSe\textsubscript{2} exhibits flat bands at twist angles between about $4^\circ$ and $5^\circ$ \cite{wang2020correlated}, and WSe\textsubscript{2}/WS\textsubscript{2} shows different localization patterns depending on the angle, as confirmed by scanning tunneling microscopy and spectroscopy \cite{li2021imaging}. Moreover, the study of flat band plasmons in twisted bilayer MoS\textsubscript{2} \cite{kuang2022flat}, as well as the role of spin-orbit coupling in TMD heterobilayers \cite{rademaker2022spin}  highlights the broader relevance of flat bands across various TMDs and underscores the diverse electronic behaviors that flat bands can induce in these materials.
+
+While the mechanical properties (including buckling) of various van der Waals (vdW) 2D materials under strain have been extensively studied \cite{dai2019strain, qi2023recent,li_buckling_2021,han_buckling_2021,li_molecular_2019}, the effects of periodic rippling on band structure and transport have not been explored in detail. Shi et al. \cite{shi_flexoelectricity_2018} demonstrated that buckling of a MoSe\textsubscript{2} monolayer leads to formation of dipole moments (i.e. flexoelectricity).  Qi et al. predicted that the band gap of MoS\textsubscript{2} could be tuned by the combination of the compression and the application of an electric field \cite{qi_bandgap_2013}. Presumably, the electric field couples to the dipole moments that are induced by the bending, and this alters the electronic structure.  This work noted a direct/indirect transition at a critical curvature for ripples described by a $k$-vector in the zig-zag direction, but did not observe a transition for the equivalent armchair ripples.  The properties of the carriers in the flat bands \cite{xu2021moire, pasquale2023electrical} were not discussed, nor was the potential for heterostructure behavior explored in any detail.  More recent work, incorporating spin-orbit coupling, finds that rippling can lead to dark excitons \cite{lee_strain-induced_2023}
+
+In the present study, the impact of uniaxial compression, including buckling, along the arm chair direction on the electronic structure of MoS\textsubscript{2} and other TMD monolayers is presented. This study is motivated by the fact that the band gap of TMD monolayers depends on strain \cite{Trainer2019}. This implies that spatial variations in strain will result in spatial variations in the band gap, effectively creating a strain-determined heterostructure. We hypothesize that bending will similarly affect the band gap, with spatial variations in bending stress leading to the formation of a strain-defined lateral heterostructure. 
+Using ab initio density functional theory (DFT) calculations, feasibility of creating strain-induced 2D heterostructures is explored directly in MoS\textsubscript{2}, WS\textsubscript{2}, MoSe\textsubscript{2}, and WSe\textsubscript{2}. Notably, in MoS\textsubscript{2} and WS\textsubscript{2}, these heterostructures exhibit substantial hole localization for compression in the armchair direction at compressions less than their Se-containing counterparts. Therefore, the focus of this study is chosen to be MoS\textsubscript{2}.
+
+Physically, the ripples break the three-fold symmetry of the flat monolayer, and will thus impact all of the tensor properties of the material. In particular, one expects that both the thermal and electrical conductivity will become anisotropic in the rippled monolayer.  In the case of electronic conductivity, it is shown in the following that rippling can lead to the formation of a strain-induced lateral heterostructure, with holes localized at the strongly curved troughs and peaks of the sinusoidal buckling pattern.
+
+Interestingly, the valence bands in these heterostructures become remarkably flat. The ability to induce flat bands through controlled compression adds to the diverse toolkit available for band engineering, expanding the range of materials and structures where such phenomena can be studied. By exploring strain as a means to achieve flat band effects, we aim to contribute to the broader understanding of quantum phenomena in 2D materials, building on the exciting developments already achieved through other methods like twisting bilayers.
+
+\begin{figure}[htbp!]
+\includegraphics[width=3.5 in]{Fig1.pdf}% 
+\caption{\label{fig:1} Direct- and reciprocal-space lattices of 1H-MoS\textsubscript{2}. (a) The crystal in real space. Dark and light gray circles represent Mo and S atoms, respectively. The primitive cell is shown in light gray, and the non-primitive rectangular cell that forms the basis of the rippled structures is shown in dark gray. (b) The Brillouin zone for the primitive and non-primitive unit cells of the 2D crystal. The irreducible wedge of the non-primitive zone is highlighted in dark gray. (c) The irreducible wedge for the $N \times M$ supercell Brillouin zone.}
+\end{figure}
+
+\begin{figure*}[htbp!]
+\centering
+\includegraphics[width=6.5 in]{Fig2.pdf}
+\caption{\label{fig:2} The structure and band structures for the $1 \times 10$ structures plotted for different compressions: (a) 0\%, (b) 3\%, (c) 7\%, (d) 8\%, (e) 10\% and (f) 15\%.  The open symbols indicate the computed VBM (valence band maximum) and CBM (conduction band minimum). The rippled structure undergoes a direct-indirect transition between 7\% and 8\% compression. At this transition, the holes become localized, as evidenced by the flat band at $\Gamma$.}
+\end{figure*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPROACH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+MoS\textsubscript{2} consists of repeating van der Waals (vdW) bonded two-layer units, where each layer is made up of covalently bonded S-Mo-S sandwiches. The monolayer in its most naturally abundant hexagonal polytype (1H-MoS\textsubscript{2}) is depicted in Fig.~\ref{fig:1}. For this paper, we focus on compression applied parallel to the armchair direction, which corresponds to the $y$-axis in our case. To study the impact of uniaxial compression, we generated buckled cells using the LAMMPS code \cite{thompson2022lammps}, employing the reactive empirical bond order (REBO) potential \cite{brenner1990empirical, brenner2002second}. The monolayer was subjected to incremental compression along the armchair direction (y-axis).  We define the compression in percent to be $C=-100 \frac{\Delta L}{L_0}=1,2,\ldots,20\%$. Here $\Delta L$ is nominal change in length of the compressed structure, and $L_0$ is the equilibrium length of the flat structure (at zero temperature). Structural relaxation are carried out at each step using conjugate gradient algorithm until forces on atoms converge to within 0.01 eV/$\text{\AA}$. A vacuum region greater than 20 $\text{\AA}$ was employed in all calculations to eliminate spurious interactions between periodically repeated cells.
+
+The buckled cells obtained from LAMMPS were then used as starting points for DFT studies using the SIESTA package \cite{soler2002siesta}. The generalized gradient approximation (GGA) with the Perdew-Burke-Ernzerhof (PBE) parametrization was used to treat exchange-correlation effects \cite{perdew_generalized_1996}. Norm-conserving pseudopotentials and a double-zeta polarized basis set were employed to describe the electron-ion interactions. Structures are fully relaxed until the force on each atom is less than 0.01  eV/$\text{\AA}$. For the self-consistent field (SCF) cycle, convergence criteria of $\Delta \hat \rho=10^{-5}$ and $\Delta \hat H=10^{-4}$ eV were used for density and Hamiltonian matrices, respectively. A finite electronic smearing temperature of $T_{e}=300$ K was used for the Fermi--Dirac occupation function to aid in convergence in the case the system became metallic. The real-space grid energy cutoff was set to 300 Ry. A $\Gamma$-centered Monkhorst-Pack $\mathbf{k}$-point mesh was used to sample the 2D Brillouin zone (BZ), employing a minimum of an $8\times 6$ $k$-point mesh. The electronic band structures and density of states were calculated to analyze the effects of periodic wrinkling on the electronic properties of the MoS\textsubscript{2} monolayers. We studied the properties of $1\times10$ and  $1\times20$ rippled structures. (The structure of the $1 \times N$ unit cells is defined in Figure \ref{fig:1}a.)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESULTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Figure \ref{fig:1}b shows the Brillouin zone for the $1\times 1$ unit cell is embedded within the Brillouin zone for the primitive unit cell. Figure \ref{fig:1}c shows the irreducible wedge of the Brillouin zone for the $N \times M$ rippled structure, labeling the high-symmetry points. Note that for $1 \times N$ structures, the width of this wedge remains fixed at $\frac{\pi}{a}$, and the height decreased with increasing $N$. Band structures for the $1 \times 10$ case are plotted in Fig. \ref{fig:2} for six compressions chosen to highlight notable features of the electronic structure as described below.
+
+First, the material undergoes direct-to-indirect transition (Fig. \ref{fig:2}). Under zero compression, the band gap is predicted to be direct and located at the $\mathrm{K}$ point. Initially, the gap increases with increasing compression. Upon buckling, however, the gap starts to decrease with increasing compression. As the structures compress further and buckle, the valence band along $\Gamma \rightarrow \rm{K}$ begins to flatten and increases in energy relative to the valence band maximum (VBM). At a compression between 7\% and 8\%, the valence band maximum shifts to $\Gamma$, rendering the material indirect.
+
+Second, compression can be used to tune the band gap. Figure \ref{fig:3}a shows the band gap as a function of compression $1 \times 10$ and $1 \times 20$ structures. The gap decreases more rapidly with compression for the shorter wavelength buckled structure, suggesting that the gap is correlated with the maximum curvature of the structures. The maximum curvature was calculated by fitting a smooth curve through the positions of the Mo atoms, and then obtaining the maximum curvature from the resulting curve. Figure \ref{fig:3}b plots the maximum bending curvature ($\kappa$) for the structures as a function of compression. Like the gap, the maximum bending curvature increases with compression more rapidly in the $1\times 10$ structure than in the $1\times 20$ structure, indicating a correlation between the gap and the maximum bending curvature.
+
+\begin{figure}[htbp!]
+\includegraphics[width=3.5 in]{Fig3.pdf} 
+\caption{\label{fig:3} (a) The band gap as a function of compression for both the $1 \times 10$ and $1 \times 20$ structures. (b) The maximum curvature in the film plotted as a function of compression for both the $1 \times 10$ and $1 \times 20$ structures. (c) The effective mass of the electrons at the CBM plotted as a function of compression for the $1 \times 10$ structure. (d) The effective mass of the electrons at the CBM plotted as a function of compression for the $1 \times 20$ structure. (e) The effective mass of the holes at the VBM plotted as a function of compression for the $1 \times 10$ structure.  At the direct-indirect transition, the magnitude of the hole mass increases dramatically in both the $x$ and $y$ directions, though the holes are more massive in the $y$ direction. (f) The effective mass of the holes at the VBM plotted as a function of compression for the $1 \times 20$ structure.  At the direct-indirect transition, the magnitude of the hole mass increases dramatically in both the $x$ and $y$ directions, though the holes are more massive in the $y$ direction. }
+\end{figure}
+
+Figures \ref{fig:3}c-f plot the effective masses for the VBM and the conduction band minimum (CBM). At lower compressions, the effective masses gradually change with compression. However, between 7\% and 8\% compression for the $1 \times 10$ case (and between 12\% and 13\% for the $1 \times 20$ case), there is a dramatic increase in the magnitude of the effective mass of the holes. This increase is triggered by the direct-to-indirect band transition in which the VBM switches to the $\Gamma$ point. As compression continues, the maximum shifts off of $\Gamma$, but the relevant band remains very flat, making the computation of the effective mass difficult, as the bands have nearly zero curvature. Interestingly, the mass of the holes increases in both principal directions, but the magnitude of the $yy$ component of the mass is always larger than the magnitude of the $xx$ component (See the Supplementary Materials \cite{suppmat}).
+
+The band crossing transition is associated with the localization of the holes. Figure 4 shows the electron density probability distributions for the states at the VBM and CBM for compressions of the $1 \times 10$ MoS\textsubscript{2} cell. For compressions below the direct-to-indirect transition, the VBM and CBM states are distributed nearly uniformly throughout the structure. However, for compressions greater than that associated with the direct-to-indirect transition, the VBM states are clearly localized to the regions with the highest bending curvature.  Moreover, inspection of the figures for MoS\textsubscript{2} suggests that the holes are localized to a mixture of the 3d$_{z^2}$ orbital of the Mo and the 3p orbitals of the S atoms on the tensile side of the bent film. However, the CBM states remain distributed throughout the film at all compressions studied. The buckled structure, in this sense, has become a lateral heterostructure with the different materials defined by the local bending curvature - highly curved regions are the material confining the holes, and the flat regions near the inflection points of the buckled structures becomes the second material of the heterostructure.
+
+In the plot of the electron density distribution, the states are localized at the peaks and valleys of the rippled structure. However, this plot includes contributions from multiple $k$-points.  If one considers the contribution from a single $k$-point, one finds that the states are either localized at the peaks or at the valleys of the ripples, but not both.  Specifically, there are degenerate states occupying either the valleys or the peaks alone that, when considered as a whole, maintain the peak/valley symmetry in the charge density.
+
+To explore whether or not hole localization upon sufficient bending is a general feature of TMDs, we computed the band structures and probability densities of the states at the VBM and CBM for $1 \times 10$ WS\textsubscript{2}, MoSe\textsubscript{2}, and WSe\textsubscript{2} under compression. (See Supplementary Materials \cite{suppmat} for band structures and probability density plots.) The band structures all display a similar compression driven band-crossing transition, though the two S containing compounds show the band crossing transition at lower compressions. The bands of the S-containing compounds also appear flatter than those for the Se-containing compounds.  The probability densities all show similar hole localization after the band-crossing transition.  The implication is that buckling induced lateral heterostructures are possible in all four materials.
+
+\begin{figure*}[ht!]
+\centering
+\includegraphics[width=6.5 in]{Fig4.pdf}
+\caption{\label{fig:4} The probability density arising from the states near (top) CBM and bottom (VBM) for compressions: (a) 0\%, (b) 3\%, (c) 7\%, (d) 8\%, (e) 10\% and (f) 15\%. From the figures it is clear that the holes become localized to the regions of maximum curvature, and in particular on the Mo 3d$_{z^{2}}$ and the S 2p states.  In contrast, the electrons remain essentially delocalized through the compression range shown.}
+\end{figure*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DISCUSSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The emergence of flat bands in compressed and buckled MoS\textsubscript{2} monolayers is an intriguing phenomenon resulting from the strain-induced modulation of the electronic band structure. By comparing the behaviors of the $1\times 10$ and $1 \times 20$ structures, one can identify two key factors that appear to govern the compression at which localization occurs.  First, the local curvature at the peaks and valleys alters the electronic states at these points compared to their properties within the flat structure.  The more sharply bent, the more significant the alteration in the electronic structure.  Second, the changes in the electronic structure lead to localization of the states within the structure.  The associated localization length appears to decrease with increasing curvature.  True localization of the states occurs when the localization length is shorter than the wavelength of the buckled state.  Thus, localization occurs at a smaller curvature for the $1\times20$ structure than for the $1\times 10$ structure because the distance between valleys and peaks is larger in the $1 \times 20$ structure.
+
+The flat bands observed in these rippled structures are analogous to those found in moir\'e-patterned bilayer graphene and twisted bilayer TMDs, where the interplay between electronic bandwidth and Coulomb interactions gives rise to strongly correlated electronic states. However, in the case of rippled MoS\textsubscript{2}, the flat bands are induced by buckling and the bending of the films rather than stacking or twisting, potentially providing an alternative route to engineering exotic electronic phases. The resulting electronic structure of the rippled states resembles that of a lateral heterostructure, where the localized holes are confined to the peaks and valleys of the ripples, effectively forming quantum wells. Indeed, localization of holes might also lead to exciton trapping, a phenomenon that could be tuned using strain and exploited for device development.
+
+Periodic rippling in TMD monolayers induces a systematic symmetry reduction, transitioning from the high-symmetry $p3m1$ plane group and $\bar{6}2m$ ($D_{3h}$) point group in the flat state to the $cm$ plane group and $2m$ ($C_{2v}$) point group under compression, and ultimately to the $pm$ plane group and $m$ ($C_s$) point group in the buckled state. This reduction eliminates a 6-fold rotoinversion axis, and may introduce a glide operation (for even $N$).  The result is a dramatically altered  Brillouin zone. Specifically, the buckling introduces a long wavelength periodicity that reorganizes the electronic structure into minibands. The curvature modulation localizes electronic states at high-curvature regions, producing flat bands driven entirely by intralayer strain and bending. Unlike twisted bilayer graphene (TBG), where flat bands arise from interlayer moiré patterns that partially retain hexagonal symmetry (e.g., $D_6$ or $D_3$ depending on the twist angle), rippled TMDs achieve flat bands through complete loss of hexagonal symmetry and more pronounced Brillouin zone folding. These unique intralayer effects create tunable electronic and thermal anisotropies, with the compressed crystal exhibiting distinct properties along and perpendicular to the ripple axis, transitioning from isotropic 2D to quasi-1D behavior.
+
+In particular, the localization is accompanied by a strongly anisotropic hole mass. The magnitudes of the hole mass at the band crossing transition are nearly three times larger in the $y$-direction than they are in the $x$-direction (see the Supplementary Materials \cite{suppmat}).  The implication is that the holes are confined more strongly in the $y$ direction than they are in the $x$ direction.  This suggests that the peaks and valleys of the rippled structures become, effectively, 1D heavy fermion conductors if sufficiently (p-type) doped \cite{wang_heavy_2017}.  If so, rippled TMDs may serve as model tunable systems for the study of 1D highly correlated materials.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONCLUSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In conclusion, we have studied the electronic properties of rippled TMDs using density functional theory. We find that the symmetry breaking due to the ripples leads to the formation of a strain-determined 2D lateral heterostructures. These heterostructures are characterized by holes localized near the regions of maximum bending curvature, while electrons remain itinerant. This suggests that strain engineering using ripples can be a powerful tool for tailoring the electronic properties of 2D materials, offering new possibilities for advanced electronic and optoelectronic devices. These findings also suggest the rippled TMDs might serve as a model system for the study of 1D heavy fermion materials.\\
+
+\acknowledgements{The authors acknowledge the support of the US Department of Energy, Office of Science, Office of Basic Energy Sciences, Materials Sciences and Engineering Division under contract no. DE-AC02-05Ch11231 (Electronic Materials program).}
+
+\bibliography{apssamp}
+\bibliographystyle{unsrt}
+
+
+\end{document}
